@@ -33,13 +33,13 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
       </head>
-      <body className="min-h-full bg-zinc-50 text-zinc-900">
-        <header className="sticky top-0 z-10 shadow-sm">
+      <body className="min-h-full text-zinc-900" style={{ backgroundColor: "var(--page-bg)" }}>
+        <header className="sticky top-0 z-10 border-b border-zinc-200/80 bg-white/90 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-md">
           <MainHubsNav />
         </header>
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">{children}</main>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">{children}</main>
         <footer className="mt-8 border-t border-zinc-200 bg-white">
-          <div className="mx-auto max-w-5xl px-4 py-5 text-xs leading-6 text-zinc-500">
+          <div className="mx-auto max-w-6xl px-4 py-5 text-xs leading-6 text-zinc-500 sm:px-6">
             <p>
               群友经验仅供参考，健康问题不能替代专业兽医诊断。
               <br />
