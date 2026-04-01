@@ -362,7 +362,7 @@
   {
     "id": "8f345dbf-c7d7-5cff-bb27-975bc5c5c521",
     "name": "爱立方小鲜砖",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "mid",
     "description": "清单冻干品牌摘录；主食冻干也需控制喂食量，避免只吃冻干不吃粮。"
@@ -549,15 +549,15 @@
   {
     "id": "978ba891-5233-539f-a786-58aa4a4b979a",
     "name": "湿粮-猫条",
-    "category": "猫粮",
-    "type": "湿粮",
+    "category": "零食",
+    "type": "猫条",
     "price_level": "mid",
     "description": "作为零食奖励，建立感情 适用：全阶段。 品牌参考：弗列加特、鲜朗。 相关问题：猫咪可以吃什么零食。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
   },
   {
     "id": "57147de4-56b9-5b3e-9905-13c10b84a807",
     "name": "零食冻干（综合款）",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "mid",
     "description": "主食向冻干须控量。品牌功课：帕特、爱立方、生生不息、金故、喵梵思脆块、地狱厨房、弗列加特、VE 等；防挑食与肥胖。"
@@ -565,7 +565,7 @@
   {
     "id": "6b2770c4-73af-5778-84f5-38e76aa93db9",
     "name": "零食-冻干鸡脖",
-    "category": "猫粮",
+    "category": "零食",
     "type": "洁牙冻干",
     "price_level": "mid",
     "description": "天然磨牙工具，帮助清洁牙齿 适用：全阶段。 品牌参考：爱立方、喵梵思。 相关问题：猫咪怎么刷牙。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
@@ -1397,7 +1397,7 @@
   {
     "id": "6d79e7f1-c5c0-50bf-b2b9-845106cae644",
     "name": "主食冻干 · 帕特",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "premium",
     "description": "主食冻干；挑食猫个案反馈爱吃，单价偏高，须控量。"
@@ -1405,7 +1405,7 @@
   {
     "id": "5b05e9e6-28d9-5233-b065-69f8b82f6cf1",
     "name": "主食冻干 · 生生不息",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "premium",
     "description": "国产高端冻干功课常见；先小包装试。"
@@ -1413,7 +1413,7 @@
   {
     "id": "cd5ace09-a70f-5276-9466-313b753b3e16",
     "name": "主食冻干 · 金故",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "premium",
     "description": "与罐头线同为金故；注意全日热量。"
@@ -1421,7 +1421,7 @@
   {
     "id": "edb8c6a8-189c-5cad-bb12-205a1c8d62c9",
     "name": "主食冻干 · 喵梵思脆块",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "budget",
     "description": "平价线；功课常提直播间半价活动。"
@@ -1429,7 +1429,7 @@
   {
     "id": "b39f707b-1c9e-5331-8e25-d063c884099f",
     "name": "主食冻干 · 地狱厨房",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "budget",
     "description": "平价功课向；例如鳕鱼条等单品，注意诱食与热量。"
@@ -1437,7 +1437,7 @@
   {
     "id": "590f0d88-98e1-5ca8-8501-ddb62b3b8bf7",
     "name": "主食冻干 · 弗列加特",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "mid",
     "description": "与主粮线同牌；冻干能量密度高须控量。"
@@ -1445,7 +1445,7 @@
   {
     "id": "80f29ec7-39bc-5a86-bb5f-8772ea77190f",
     "name": "主食冻干 · VE",
-    "category": "猫粮",
+    "category": "零食",
     "type": "主食冻干",
     "price_level": "premium",
     "description": "进口冻干功课；运输与渠道注意真伪。"

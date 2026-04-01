@@ -13,7 +13,7 @@ export interface Question {
   recommended_products: string[];
 }
 
-export type ProductCategory = "猫粮" | "猫砂" | "护理用品" | "健康用品" | "玩具";
+export type ProductCategory = "猫粮" | "零食" | "猫砂" | "护理用品" | "健康用品" | "玩具";
 export type PriceLevel = "budget" | "mid" | "premium";
 
 export interface Product {

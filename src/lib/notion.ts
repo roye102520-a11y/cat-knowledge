@@ -94,7 +94,14 @@ function toCategory(value: string): QuestionCategory {
 }
 
 function toProductCategory(value: string): ProductCategory {
-  if (value === "猫粮" || value === "猫砂" || value === "护理用品" || value === "健康用品" || value === "玩具") {
+  if (
+    value === "猫粮" ||
+    value === "零食" ||
+    value === "猫砂" ||
+    value === "护理用品" ||
+    value === "健康用品" ||
+    value === "玩具"
+  ) {
     return value;
   }
   return productCategoryFallback;
