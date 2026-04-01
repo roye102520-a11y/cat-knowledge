@@ -1,0 +1,98 @@
+"use client";
+
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
+import CategoryFilter from "@/components/category-filter";
+import QuestionCard from "@/components/question-card";
+import SearchBar from "@/components/search-bar";
+import {
+  filterQuestionsFromRows,
+  parseQuestionHub,
+  questionCategoriesForHub,
+} from "@/lib/data";
+import {
+  QUESTION_CATEGORY_TO_SLUG,
+  parseQuestionCategoryParam,
+} from "@/lib/query-param-filters";
+import type { Question, QuestionCategory, QuestionHubParam } from "@/lib/types";
+
+const HUB_TABS: {
+  key: "core" | QuestionHubParam;
+  label: string;
+  href: string;
+}[] = [
+  { key: "core", label: "养猫问题（全部）", href: "/questions" },
+  { key: "disease", label: "猫咪健康", href: "/questions?hub=disease" },
+  { key: "behavior", label: "猫咪行为", href: "/questions?hub=behavior" },
+];
+
+export default function QuestionsClient({ initialQuestions }: { initialQuestions: Question[] }) {
+  const searchParams = useSearchParams();
+  const q = searchParams.get("q") ?? "";
+  const category = parseQuestionCategoryParam(searchParams.get("category"));
+  const activeCategorySlug = category ? QUESTION_CATEGORY_TO_SLUG[category] : undefined;
+  const hub = parseQuestionHub(searchParams.get("hub") ?? undefined);
+  const categories = questionCategoriesForHub(hub);
+
+  const questions = useMemo(
+    () => filterQuestionsFromRows(initialQuestions, q, category, hub),
+    [initialQuestions, q, category, hub],
+  );
+
+  const title =
+    hub === "disease" ? "猫咪健康" : hub === "behavior" ? "猫咪行为" : "养猫问题";
+
+  const subtitle =
+    hub === "disease"
+      ? "涵盖肠胃与症状护理、皮肤与被毛照护、健康与老年相关问答；严重或急性情况请尽早就医。"
+      : hub === "behavior"
+        ? "乱尿乱抓、应激、作息与多猫相处等行为向经验；若伴随病痛需先排除医学原因。"
+        : "以用户搜索问题为主组织内容；可按标签筛选或搜索，不只看分类名。";
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold">{title}</h1>
+        <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
+      </div>
+
+      <nav aria-label="问题子库切换" className="flex flex-wrap gap-2">
+        {HUB_TABS.map((t) => {
+          const active =
+            (t.key === "core" && !hub) || (t.key === "disease" && hub === "disease") || (t.key === "behavior" && hub === "behavior");
+          return (
+            <Link
+              key={t.key}
+              href={t.href}
+              className={`rounded-full px-3 py-1.5 text-sm transition ${
+                active
+                  ? "bg-zinc-900 text-white"
+                  : "border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50"
+              }`}
+            >
+              {t.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      <form className="space-y-3" method="get" action="/questions" acceptCharset="UTF-8">
+        {hub ? <input type="hidden" name="hub" value={hub} /> : null}
+        <SearchBar key={`${q}-${hub ?? ""}-${activeCategorySlug ?? ""}`} defaultValue={q} placeholder="搜索问题，例如：猫呕吐、猫抓沙发、母猫绝育" />
+        <CategoryFilter
+          items={categories.map((c) => ({ value: QUESTION_CATEGORY_TO_SLUG[c], label: c }))}
+          name="category"
+          activeValue={activeCategorySlug}
+        />
+      </form>
+
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {questions.map((question) => (
+          <QuestionCard key={question.id} question={question} />
+        ))}
+      </div>
+      {questions.length === 0 ? <p className="text-sm text-zinc-500">没有找到匹配的问题。</p> : null}
+    </div>
+  );
+}

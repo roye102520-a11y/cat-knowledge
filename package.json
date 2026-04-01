@@ -1,0 +1,38 @@
+{
+  "name": "cat-knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:share": "STATIC_EXPORT=1 next build",
+    "preview:share": "npx --yes serve out -p 3330",
+    "start": "next start",
+    "lint": "eslint",
+    "notion:check": "node scripts/notion-health.mjs",
+    "notion:sync": "tsx scripts/sync-notion-to-json.ts",
+    "data:import-questions": "python3 scripts/import_questions_from_csv.py",
+    "data:import-guides": "python3 scripts/import_guides_from_csv.py",
+    "data:import-products": "python3 scripts/import_products_from_csv.py",
+    "data:import-local": "python3 scripts/import_questions_from_csv.py && python3 scripts/import_guides_from_csv.py && python3 scripts/import_products_from_csv.py",
+    "data:merge-downloads": "python3 scripts/merge_downloads_into_project.py"
+  },
+  "dependencies": {
+    "@notionhq/client": "^5.16.0",
+    "marked": "^17.0.5",
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.2",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.0",
+    "typescript": "^5"
+  }
+}

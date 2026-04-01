@@ -1,0 +1,67 @@
+{
+  "search_examples": [
+    "猫咪为什么乱尿",
+    "猫咪不吃饭",
+    "猫绝育多少钱",
+    "猫一直叫怎么办"
+  ],
+  "hot_question_titles": [
+    "公猫绝育多少钱",
+    "猫咪发情怎么办",
+    "猫咪为什么一直叫",
+    "猫咪打疫苗多少钱",
+    "猫咪多久洗一次澡",
+    "猫拉稀怎么办"
+  ],
+  "category_cards": [
+    {
+      "emoji": "🐱",
+      "title": "新手养猫",
+      "href": "/guide",
+      "hint": "接猫、清单与环境"
+    },
+    {
+      "emoji": "🍖",
+      "title": "吃什么",
+      "href": "/questions?q=猫粮",
+      "hint": "主食、换粮与挑食"
+    },
+    {
+      "emoji": "🏥",
+      "title": "健康疾病",
+      "href": "/questions?hub=disease",
+      "hint": "呕吐、腹泻、皮肤等"
+    },
+    {
+      "emoji": "✂️",
+      "title": "绝育",
+      "href": "/questions?q=绝育",
+      "hint": "费用、术前术后"
+    },
+    {
+      "emoji": "😾",
+      "title": "行为问题",
+      "href": "/questions?hub=behavior",
+      "hint": "乱尿、抓沙发、应激"
+    },
+    {
+      "emoji": "🧼",
+      "title": "清洁护理",
+      "href": "/questions?q=洗澡",
+      "hint": "洗澡、梳毛、黑下巴"
+    },
+    {
+      "emoji": "🛍",
+      "title": "猫咪用品",
+      "href": "/products",
+      "hint": "粮砂玩具与设备"
+    },
+    {
+      "emoji": "🚨",
+      "title": "紧急情况",
+      "href": "/questions?q=尿闭",
+      "hint": "尿闭、吐血等先就医"
+    }
+  ],
+  "content_sources_note": "《新手养猫清单》.docx、《猫咪指南》.pdf 与群友经验已摘要进 guides / 问答库；用药与剂量以兽医为准。"
+}

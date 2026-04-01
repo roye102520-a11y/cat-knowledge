@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #18181b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Markdown SEO 长文（marked 输出） */
+.seo-article-body {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+.seo-article-body h1,
+.seo-article-body h2 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #18181b;
+}
+.seo-article-body h1 {
+  font-size: 1.25rem;
+}
+.seo-article-body h2 {
+  font-size: 1.125rem;
+  border-bottom: 1px solid #e4e4e7;
+  padding-bottom: 0.35rem;
+}
+.seo-article-body h1:first-child,
+.seo-article-body h2:first-child {
+  margin-top: 0;
+}
+.seo-article-body p {
+  margin: 0.65rem 0;
+}
+.seo-article-body hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #e4e4e7;
+}
+.seo-article-body strong {
+  font-weight: 600;
+  color: #18181b;
+}
+.seo-article-body ul,
+.seo-article-body ol {
+  margin: 0.65rem 0;
+  padding-left: 1.35rem;
+}
+.seo-article-body li {
+  margin: 0.35rem 0;
+}
+.seo-article-body a {
+  color: #713f12;
+  text-decoration: underline;
+}
