@@ -13,7 +13,9 @@ export interface Question {
   recommended_products: string[];
 }
 
-export type ProductCategory = "猫粮" | "零食" | "猫砂" | "护理用品" | "健康用品" | "玩具";
+export type ProductCategory = "猫粮" | "主食罐" | "零食" | "猫砂" | "护理用品" | "健康用品" | "玩具";
+/** 可选标注：国产 / 进口（干粮、主食罐、部分零食品牌等） */
+export type ProductOrigin = "国产" | "进口";
 export type PriceLevel = "budget" | "mid" | "premium";
 
 export interface Product {
@@ -23,6 +25,8 @@ export interface Product {
   type: string;
   price_level: PriceLevel;
   description: string;
+  /** 国产/进口；未设置则不展示产地标签 */
+  origin?: ProductOrigin;
   /** 可选：直达购买页（电商/官网），未配置则卡片不显示按钮 */
   purchase_url?: string;
 }

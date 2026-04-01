@@ -24,7 +24,7 @@ export default async function ZonesPage() {
           ))}
         </div>
         <p className="mt-3 text-xs text-zinc-500">
-          需要按「猫粮/零食/猫砂」货架浏览请前往{" "}
+          需要按「猫粮/主食罐/零食/猫砂」货架浏览请前往{" "}
           <Link href="/products" className="underline">
             猫咪用品库
           </Link>

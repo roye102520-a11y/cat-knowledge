@@ -5,7 +5,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "budget",
-    "description": "《猫咪指南》：大袋折扣常不明显，可多留意试吃；日常价约30元/斤量级讨论较多（以实际渠道为准）。定位\"平价国产、关注试吃羊毛\"的经验向描述。"
+    "description": "《猫咪指南》：大袋折扣常不明显，可多留意试吃；日常价约30元/斤量级讨论较多（以实际渠道为准）。定位\"平价国产、关注试吃羊毛\"的经验向描述。",
+    "origin": "国产"
   },
   {
     "id": "51bc6bd2-9429-5f60-a753-25ed65d5e2b1",
@@ -13,7 +14,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》归入进口梯队；网友常提配方与性价比平衡、适口性因猫而异，属中端进口常见选项。"
+    "description": "《猫咪指南》归入进口梯队；网友常提配方与性价比平衡、适口性因猫而异，属中端进口常见选项。",
+    "origin": "进口"
   },
   {
     "id": "6ce6690c-f89f-5ece-be21-982230054a94",
@@ -21,7 +23,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "《猫咪指南》进口高端代表之一，高蛋白路线；适合预算充足、关注配料与蛋白耐受的家庭。"
+    "description": "《猫咪指南》进口高端代表之一，高蛋白路线；适合预算充足、关注配料与蛋白耐受的家庭。",
+    "origin": "进口"
   },
   {
     "id": "e5f81f44-888a-50a5-b23a-82303c7c791b",
@@ -29,7 +32,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "皇家系在指南中另有\"幼猫粮泡羊奶\"的喂养讨论；此款为室内成猫向参考，具体系列以包装与兽医建议为准。"
+    "description": "皇家系在指南中另有\"幼猫粮泡羊奶\"的喂养讨论；此款为室内成猫向参考，具体系列以包装与兽医建议为准。",
+    "origin": "进口"
   },
   {
     "id": "cc86a069-1b49-5c2a-bc09-128388a35746",
@@ -37,7 +41,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "无谷配方，网友讨论适口性相对稳定；与指南中国产/进口列表可并行作功课，个体差异大。"
+    "description": "无谷配方，网友讨论适口性相对稳定；与指南中国产/进口列表可并行作功课，个体差异大。",
+    "origin": "进口"
   },
   {
     "id": "fe16d42b-2074-56a5-bd43-515709dbb90b",
@@ -157,7 +162,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》：系列价差大——果蔬向适合微胖猫、鹌鹑系偏低敏讨论；幼时羊奶粉幼猫系、成长期使用兔肉等口味个体喜好差异大；正装可关注促销价带。"
+    "description": "《猫咪指南》：系列价差大——果蔬向适合微胖猫、鹌鹑系偏低敏讨论；幼时羊奶粉幼猫系、成长期使用兔肉等口味个体喜好差异大；正装可关注促销价带。",
+    "origin": "国产"
   },
   {
     "id": "b05f0fa0-bc31-5aa2-9942-6009a90602c5",
@@ -165,7 +171,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》形容词：偏油、长肉向较多；适合需要增重的猫与否因个体代谢而异，怕油猫慎选。"
+    "description": "《猫咪指南》形容词：偏油、长肉向较多；适合需要增重的猫与否因个体代谢而异，怕油猫慎选。",
+    "origin": "国产"
   },
   {
     "id": "658512b9-f925-5f4c-a317-875e6a8caa1f",
@@ -173,7 +180,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "budget",
-    "description": "《猫咪指南》：「爆爆桶」冻干夹心款，挑食猫个案反馈较爱吃；属国货营销与适口性并重的经验描述。"
+    "description": "《猫咪指南》：「爆爆桶」冻干夹心款，挑食猫个案反馈较爱吃；属国货营销与适口性并重的经验描述。",
+    "origin": "国产"
   },
   {
     "id": "6131b865-7a66-5264-ae44-289675af27be",
@@ -181,7 +189,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "budget",
-    "description": "《猫咪指南》国产表常见名；入门价位、配方讨论多，适合作第一份粮功课与试吃对比。"
+    "description": "《猫咪指南》国产表常见名；入门价位、配方讨论多，适合作第一份粮功课与试吃对比。",
+    "origin": "国产"
   },
   {
     "id": "696c08e3-bf8c-54e4-a4e9-187884b15b26",
@@ -189,7 +198,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "《猫咪指南》外国清单品牌；进口中高端常见，关注配方版本与渠道真伪。"
+    "description": "《猫咪指南》外国清单品牌；进口中高端常见，关注配方版本与渠道真伪。",
+    "origin": "进口"
   },
   {
     "id": "68f353c2-19fa-58a0-94b0-7d65b6e75b7b",
@@ -197,7 +207,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "《猫咪指南》进口高端；风干/高肉、高单价，适口性两极，建议先小包装试。"
+    "description": "《猫咪指南》进口高端；风干/高肉、高单价，适口性两极，建议先小包装试。",
+    "origin": "进口"
   },
   {
     "id": "e11e0831-55f2-59a1-9523-14dbca845242",
@@ -277,7 +288,8 @@
     "category": "猫粮",
     "type": "幼猫粮",
     "price_level": "mid",
-    "description": "《猫咪指南》：满月后可用皇家幼猫粮泡羊奶至软，牙长齐再过渡到干粮；个体换粮需渐进。"
+    "description": "《猫咪指南》：满月后可用皇家幼猫粮泡羊奶至软，牙长齐再过渡到干粮；个体换粮需渐进。",
+    "origin": "进口"
   },
   {
     "id": "9dac43d8-8567-5b01-9b14-b8c3b1e1133d",
@@ -285,7 +297,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "budget",
-    "description": "《猫咪指南》：折扣多、可蹲直播间「半价」类活动；同品牌脆块冻干列入平价冻干摘录，属国货高性价比画风。"
+    "description": "《猫咪指南》：折扣多、可蹲直播间「半价」类活动；同品牌脆块冻干列入平价冻干摘录，属国货高性价比画风。",
+    "origin": "国产"
   },
   {
     "id": "f3e7c132-525f-514f-afd6-455403da605e",
@@ -293,7 +306,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》原话风格：无功无过、稳健型国产粮讨论；适合作为中庸备选与试吃。"
+    "description": "《猫咪指南》原话风格：无功无过、稳健型国产粮讨论；适合作为中庸备选与试吃。",
+    "origin": "国产"
   },
   {
     "id": "35943f4b-e12c-57df-b6e7-64cbba4c8798",
@@ -301,7 +315,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》：减肥向猫粮讨论，抖音等活动价提及较多；控重需配喂食量与体检。"
+    "description": "《猫咪指南》：减肥向猫粮讨论，抖音等活动价提及较多；控重需配喂食量与体检。",
+    "origin": "进口"
   },
   {
     "id": "402e1889-41c6-5cc3-8094-f0f7b7d50ade",
@@ -309,7 +324,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "《猫咪指南》：适合肠胃偏弱猫的讨论向品牌，形容词带「价格偏贵」；敏感胃建议遵医嘱换粮。"
+    "description": "《猫咪指南》：适合肠胃偏弱猫的讨论向品牌，形容词带「价格偏贵」；敏感胃建议遵医嘱换粮。",
+    "origin": "国产"
   },
   {
     "id": "d7003d83-e36e-504f-a4ee-e6f47716bee8",
@@ -317,7 +333,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《猫咪指南》：口味多、试吃装友好；作者因新闻事件未购大包，网传控重向说法需自行甄别真伪与批次。"
+    "description": "《猫咪指南》：口味多、试吃装友好；作者因新闻事件未购大包，网传控重向说法需自行甄别真伪与批次。",
+    "origin": "进口"
   },
   {
     "id": "50426438-7b61-547e-b38d-a5de50ff8ea1",
@@ -333,7 +350,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "《新手养猫清单》.docx 列入进口粮功课讨论名单；网友常作「口碑与体制」向对比，请先试吃再囤。"
+    "description": "《新手养猫清单》.docx 列入进口粮功课讨论名单；网友常作「口碑与体制」向对比，请先试吃再囤。",
+    "origin": "进口"
   },
   {
     "id": "1c37a16b-add1-5e07-a23c-c41029a7864b",
@@ -365,7 +383,8 @@
     "category": "零食",
     "type": "主食冻干",
     "price_level": "mid",
-    "description": "清单冻干品牌摘录；主食冻干也需控制喂食量，避免只吃冻干不吃粮。"
+    "description": "清单冻干品牌摘录；主食冻干也需控制喂食量，避免只吃冻干不吃粮。",
+    "origin": "国产"
   },
   {
     "id": "82d534a6-9616-58a0-b805-ccdfa0867914",
@@ -429,8 +448,8 @@
     "category": "护理用品",
     "type": "监控设备",
     "price_level": "budget",
-    "description": "固定视角入门款；可架在猫碗或猫砂盆附近观察小猫动向。链接由群友提供（拼多多），失效请按关键词重搜；与 TP-Link 宠物监控可互补。",
-    "purchase_url": "https://mobile.yangkeduo.com/goods.html?refer_share_uin=6IEBCDIEXV2YMOD2XYWR7HNUEI_GEXDA&_oak_share_time=1770785970&share_uin=6IEBCDIEXV2YMOD2XYWR7HNUEI_GEXDA&page_from=101&_oak_share_detail_id=14570666602&refer_share_channel=message&share_oak_rcto=YWJPIrQk-LbPxufPFel8fdyK803KTtGSzW6R1kkqGbtCETZP4Dyv2RTbhdF87N7oHWEA27ZDMk82Hg&refer_share_id=3g2QJ0xMmkB36EWTvr4hPoeyDHK0LK5S&_oak_share_snapshot_num=4910&pxq_secret_key=RQNPPLUGRKHAIAG4RMRYYLEFBQ22MZO4NQ6TWKR4AUHPYJI5OS2Q&goods_id=711963105756&__wls_rt=1&__wls_lt=1&__wls_fm=n&refer_page_name=psnl_verification&refer_page_id=10390_1775049521476_p2wnhy1fcz&refer_page_sn=10390#pushState"
+    "description": "群友笔记：固定视角入门款相对便宜，可放在猫碗或猫砂盆附近，看小猫在哪里、是否在吃粮或如厕。注意供电、夜视与 App 稳定性。下附为拼多多商品示例链接，失效请按「家用摄像头/宠物监控」同需求重搜。",
+    "purchase_url": "https://mobile.yangkeduo.com/goods.html?goods_id=711963105756"
   },
   {
     "id": "013583e6-2c21-5784-b230-edc1dd74c55e",
@@ -495,7 +514,7 @@
     "category": "猫砂",
     "type": "猫砂盆",
     "price_level": "budget",
-    "description": "封闭式、到货需自行组装。不锈钢大盆、铲与脚垫见「猫砂盆专区」。链接由群友提供，失效请按关键词检索。",
+    "description": "群友笔记：封闭式，但需要自己组装；防外溅与控味因猫而异。下附为拼多多示例链接，失效请按「封闭式猫砂盆」重搜。",
     "purchase_url": "https://mobile.yangkeduo.com/goods.html?ps=Ho3jmmEF4F"
   },
   {
@@ -504,7 +523,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "mid",
-    "description": "性价比高，适合大多数猫咪，品控相对稳定 适用：全阶段。 品牌参考：鲜朗、弗列加特、诚实一口、东边、金故、格吾安小金盾、蓝氏、网易严选。 相关问题：猫咪应该吃什么猫粮。 渠道：淘宝/京东/拼多多。（条目来自批量导入，链接请自行检索。）"
+    "description": "性价比高，适合大多数猫咪，品控相对稳定 适用：全阶段。 品牌参考：鲜朗、弗列加特、诚实一口、东边、金故、格吾安小金盾、蓝氏、网易严选。 相关问题：猫咪应该吃什么猫粮。 渠道：淘宝/京东/拼多多。（条目来自批量导入，链接请自行检索。）",
+    "origin": "国产"
   },
   {
     "id": "a072836b-956c-5f3d-b433-77db5b2c2d14",
@@ -512,7 +532,8 @@
     "category": "猫粮",
     "type": "主粮",
     "price_level": "premium",
-    "description": "原料优质，营养均衡，适合对品质有要求的家庭 适用：全阶段。 品牌参考：爱肯拿、渴望、百利高、法米娜、皇家、纽顿。 相关问题：猫咪应该吃什么猫粮。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
+    "description": "原料优质，营养均衡，适合对品质有要求的家庭 适用：全阶段。 品牌参考：爱肯拿、渴望、百利高、法米娜、皇家、纽顿。 相关问题：猫咪应该吃什么猫粮。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）",
+    "origin": "进口"
   },
   {
     "id": "ab644a80-088c-59e0-a93b-21423769716b",
@@ -541,7 +562,7 @@
   {
     "id": "41dd833d-fbd2-5276-a30d-0b657d906d5e",
     "name": "湿粮-罐头",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
     "description": "补水补充蛋白质，适合不爱喝水的猫咪 适用：全阶段。 品牌参考：金故、喜崽、喵梵思、诚实一口、格吾安、添赐力、弗列加特、鲜朗、ziwi、金交、zeal、小李子、帕特。 相关问题：猫咪不爱喝水怎么办。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
@@ -552,15 +573,16 @@
     "category": "零食",
     "type": "猫条",
     "price_level": "mid",
-    "description": "作为零食奖励，建立感情 适用：全阶段。 品牌参考：弗列加特、鲜朗。 相关问题：猫咪可以吃什么零食。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
+    "description": "作为零食奖励，建立感情 适用：全阶段。 品牌参考：弗列加特、鲜朗。 相关问题：猫咪可以吃什么零食。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）",
+    "origin": "国产"
   },
   {
-    "id": "57147de4-56b9-5b3e-9905-13c10b84a807",
+    "id": "89c53f4c-a364-55cf-83b2-4d6b8323f812",
     "name": "零食冻干（综合款）",
     "category": "零食",
     "type": "主食冻干",
     "price_level": "mid",
-    "description": "主食向冻干须控量。品牌功课：帕特、爱立方、生生不息、金故、喵梵思脆块、地狱厨房、弗列加特、VE 等；防挑食与肥胖。"
+    "description": "高蛋白低水分，适合训练和奖励 适用：全阶段。 品牌参考：帕特、爱立方小鲜砖、生生不息、金故、喵梵思脆块、地狱厨房、弗列加特、VE。 相关问题：猫咪零食推荐。 渠道：淘宝/京东。（条目来自批量导入，链接请自行检索。）"
   },
   {
     "id": "6b2770c4-73af-5778-84f5-38e76aa93db9",
@@ -1293,161 +1315,118 @@
   {
     "id": "7730babf-9788-5da0-9569-0749ae8f0487",
     "name": "主食罐 · 金故",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "口感很好，肉泥质地。单罐份量是否适合「一顿吃完」因猫体重而异；也有小包装约 40g 偏小、大罐偏大的讨论，可按顿调整。"
+    "description": "口感很好，肉泥质地。单罐份量是否适合「一顿吃完」因猫体重而异；也有小包装约 40g 偏小、大罐偏大的讨论，可按顿调整。",
+    "origin": "国产"
   },
   {
     "id": "c844037a-3fd0-59eb-bff9-5c3c4b2024b4",
     "name": "主食罐 · 喜崽",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "厚米糊质地。注意是否全价主食、全日热量与是否一顿能吃完。"
+    "description": "厚米糊质地。注意是否全价主食、全日热量与是否一顿能吃完。",
+    "origin": "国产"
   },
   {
     "id": "8419ff98-bcbb-5b8c-a50d-73dfebb94db7",
     "name": "主食罐 · 喵梵思",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "budget",
-    "description": "质地相对偏稀；选购时对照是否主食全价。"
+    "description": "质地相对偏稀；选购时对照是否主食全价。",
+    "origin": "国产"
   },
   {
     "id": "e54cdfb1-ea61-508c-a846-0d88a721c268",
     "name": "主食罐 · 诚实一口",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "功课常见国产罐；适口因猫而异。"
+    "description": "功课常见国产罐；适口因猫而异。",
+    "origin": "国产"
   },
   {
     "id": "fa22e47f-4bf2-5660-80d1-2f13d182d418",
     "name": "主食罐 · 格吾安",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "多系列；须确认幼猫/成猫与是否全价主食。"
+    "description": "多系列；须确认幼猫/成猫与是否全价主食。",
+    "origin": "国产"
   },
   {
     "id": "a997c0e3-c6cc-5ba2-954d-738cd7898fb1",
     "name": "主食罐 · 添赐力",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "免疫向讨论与奶猫补给个案；是否适用问兽医。"
+    "description": "免疫向讨论与奶猫补给个案；是否适用问兽医。",
+    "origin": "国产"
   },
   {
     "id": "324fca1f-3d8c-5ca6-b874-6f3ae581b75f",
     "name": "主食罐 · 弗列加特",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "肉质偏扎实。注意热量与是否主食罐。"
+    "description": "肉质偏扎实。注意热量与是否主食罐。",
+    "origin": "国产"
   },
   {
     "id": "1f1c562d-c68f-51db-8d72-4726067a7ae4",
     "name": "主食罐 · 鲜朗",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "肉泥偏厚实；可先小罐试吃。"
+    "description": "肉泥偏厚实；可先小罐试吃。",
+    "origin": "国产"
   },
   {
     "id": "d58e9b84-d2a7-54a0-8556-99e77369b4e7",
     "name": "主食罐 · ziwi巅峰",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "premium",
-    "description": "进口高端；高蛋白与适口两极，建议先试再囤。"
+    "description": "进口高端；高蛋白与适口两极，建议先试再囤。",
+    "origin": "进口"
   },
   {
     "id": "92672380-522d-59d7-8837-89d9a57ff814",
     "name": "主食罐 · 金色交响乐",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "premium",
-    "description": "进口德罐常见功课；注意口味与是否全价。"
+    "description": "进口德罐常见功课；注意口味与是否全价。",
+    "origin": "进口"
   },
   {
     "id": "803d3cb4-2bd9-5703-a789-686034513c9c",
     "name": "主食罐 · zeal",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "进口新西兰向讨论；控制热量。"
+    "description": "进口新西兰向讨论；控制热量。",
+    "origin": "进口"
   },
   {
     "id": "3446a07c-b099-505b-ac53-146464c05477",
     "name": "主食罐 · 小李子",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "进口德罐常见名；肝脏系列需留意成分与喂食量。"
+    "description": "进口德罐常见名；肝脏系列需留意成分与喂食量。",
+    "origin": "进口"
   },
   {
     "id": "4552769c-fc73-5e2e-b3b1-f24f6e7f03a5",
     "name": "主食罐 · 帕特",
-    "category": "猫粮",
+    "category": "主食罐",
     "type": "湿粮",
     "price_level": "mid",
-    "description": "品牌多系列；对照全价与猫龄。"
-  },
-  {
-    "id": "6d79e7f1-c5c0-50bf-b2b9-845106cae644",
-    "name": "主食冻干 · 帕特",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "premium",
-    "description": "主食冻干；挑食猫个案反馈爱吃，单价偏高，须控量。"
-  },
-  {
-    "id": "5b05e9e6-28d9-5233-b065-69f8b82f6cf1",
-    "name": "主食冻干 · 生生不息",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "premium",
-    "description": "国产高端冻干功课常见；先小包装试。"
-  },
-  {
-    "id": "cd5ace09-a70f-5276-9466-313b753b3e16",
-    "name": "主食冻干 · 金故",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "premium",
-    "description": "与罐头线同为金故；注意全日热量。"
-  },
-  {
-    "id": "edb8c6a8-189c-5cad-bb12-205a1c8d62c9",
-    "name": "主食冻干 · 喵梵思脆块",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "budget",
-    "description": "平价线；功课常提直播间半价活动。"
-  },
-  {
-    "id": "b39f707b-1c9e-5331-8e25-d063c884099f",
-    "name": "主食冻干 · 地狱厨房",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "budget",
-    "description": "平价功课向；例如鳕鱼条等单品，注意诱食与热量。"
-  },
-  {
-    "id": "590f0d88-98e1-5ca8-8501-ddb62b3b8bf7",
-    "name": "主食冻干 · 弗列加特",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "mid",
-    "description": "与主粮线同牌；冻干能量密度高须控量。"
-  },
-  {
-    "id": "80f29ec7-39bc-5a86-bb5f-8772ea77190f",
-    "name": "主食冻干 · VE",
-    "category": "零食",
-    "type": "主食冻干",
-    "price_level": "premium",
-    "description": "进口冻干功课；运输与渠道注意真伪。"
+    "description": "品牌多系列；对照全价与猫龄。",
+    "origin": "国产"
   }
 ]

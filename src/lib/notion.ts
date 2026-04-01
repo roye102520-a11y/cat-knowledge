@@ -1,4 +1,12 @@
-import type { Guide, PriceLevel, Product, ProductCategory, Question, QuestionCategory } from "@/lib/types";
+import type {
+  Guide,
+  PriceLevel,
+  Product,
+  ProductCategory,
+  ProductOrigin,
+  Question,
+  QuestionCategory,
+} from "@/lib/types";
 
 const notionToken = process.env.NOTION_TOKEN;
 
@@ -96,6 +104,7 @@ function toCategory(value: string): QuestionCategory {
 function toProductCategory(value: string): ProductCategory {
   if (
     value === "猫粮" ||
+    value === "主食罐" ||
     value === "零食" ||
     value === "猫砂" ||
     value === "护理用品" ||
@@ -105,6 +114,11 @@ function toProductCategory(value: string): ProductCategory {
     return value;
   }
   return productCategoryFallback;
+}
+
+function toProductOrigin(value: string): ProductOrigin | undefined {
+  if (value === "国产" || value === "进口") return value;
+  return undefined;
 }
 
 function toPriceLevel(value: string): PriceLevel {
@@ -191,6 +205,8 @@ export async function fetchProductsFromNotion(): Promise<Product[]> {
   return rows.map((rowObj) => {
     const props = toRecord(rowObj.properties);
     const purchase_url = toPurchaseUrl(getProp(props, ["purchase_url", "购买链接", "商品链接", "链接"]));
+    const originRaw = toSelect(getProp(props, ["origin", "产地", "国产进口"]));
+    const origin = originRaw ? toProductOrigin(originRaw) : undefined;
     return {
       id: typeof rowObj.id === "string" ? rowObj.id : crypto.randomUUID(),
       name: toTitle(getProp(props, ["name", "名称"])),
@@ -198,6 +214,7 @@ export async function fetchProductsFromNotion(): Promise<Product[]> {
       type: toSelect(getProp(props, ["type", "用品类型"])) || toText(getProp(props, ["type", "用品类型"])),
       price_level: toPriceLevel(toSelect(getProp(props, ["price_level", "价格等级"]))),
       description: toText(getProp(props, ["description", "描述", "推荐理由"])),
+      ...(origin ? { origin } : {}),
       ...(purchase_url ? { purchase_url } : {}),
     };
   });

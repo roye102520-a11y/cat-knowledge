@@ -222,7 +222,7 @@ export function filterProductsFromRows(
     if (!normalized) {
       return hitCategory && hitPrice;
     }
-    const text = [p.name, p.category, p.type, p.description].join(" ").toLowerCase();
+    const text = [p.name, p.category, p.type, p.description, p.origin].filter(Boolean).join(" ").toLowerCase();
     return hitCategory && hitPrice && text.includes(normalized);
   });
 }

@@ -13,8 +13,9 @@ OUT_PATH = ROOT / "src/data/products.json"
 
 NAMESPACE = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
 
-VALID_CATEGORIES = frozenset({"猫粮", "零食", "猫砂", "护理用品", "健康用品", "玩具"})
+VALID_CATEGORIES = frozenset({"猫粮", "主食罐", "零食", "猫砂", "护理用品", "健康用品", "玩具"})
 VALID_LEVELS = frozenset({"budget", "mid", "premium"})
+VALID_ORIGINS = frozenset({"国产", "进口"})
 
 
 def main() -> None:
@@ -33,6 +34,9 @@ def main() -> None:
                 raise SystemExit(f"Invalid price_level {pl!r} for product {name!r}")
             pid = str(uuid.uuid5(NAMESPACE, name))
             url = (row.get("purchase_url") or "").strip()
+            origin = (row.get("origin") or "").strip()
+            if origin and origin not in VALID_ORIGINS:
+                raise SystemExit(f"Invalid origin {origin!r} for product {name!r} (use 国产 or 进口)")
             item: dict = {
                 "id": pid,
                 "name": name,
@@ -41,6 +45,8 @@ def main() -> None:
                 "price_level": pl,
                 "description": (row.get("description") or "").strip(),
             }
+            if origin:
+                item["origin"] = origin
             if url:
                 item["purchase_url"] = url
             rows_out.append(item)

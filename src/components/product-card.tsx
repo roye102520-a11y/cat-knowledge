@@ -8,6 +8,11 @@ export default function ProductCard({ product, keyword }: { product: Product; ke
       <div className="mb-2 flex flex-wrap gap-2">
         <Tag>{product.category}</Tag>
         <Tag>{product.type}</Tag>
+        {product.origin ? (
+          <span className="inline-flex rounded-md border border-violet-200 bg-violet-50 px-2 py-0.5 text-xs text-violet-800">
+            {product.origin}
+          </span>
+        ) : null}
       </div>
       <h3 className="text-base font-semibold text-zinc-900">
         <HighlightText text={product.name} keyword={keyword} />
