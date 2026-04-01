@@ -24,9 +24,13 @@ export function parseProductCategoryParam(value: string | null): ProductCategory
   return allowed.includes(value as ProductCategory) ? (value as ProductCategory) : undefined;
 }
 
-/** 问题分类：同样使用 slug */
+/**
+ * 问题分类：URL 只用 slug；「行为问题」使用 qcat_behavior，避免与 hub=behavior 同名造成路由/调试混淆。
+ * category=behavior 仍解析为行为问题（旧链接兼容）。
+ */
 export const QUESTION_CATEGORY_SLUGS: Record<string, QuestionCategory> = {
   gut: "肠胃问题",
+  qcat_behavior: "行为问题",
   behavior: "行为问题",
   care: "护理问题",
   health: "健康问题",
@@ -34,7 +38,7 @@ export const QUESTION_CATEGORY_SLUGS: Record<string, QuestionCategory> = {
 
 export const QUESTION_CATEGORY_TO_SLUG: Record<QuestionCategory, string> = {
   肠胃问题: "gut",
-  行为问题: "behavior",
+  行为问题: "qcat_behavior",
   护理问题: "care",
   健康问题: "health",
 };

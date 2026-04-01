@@ -6,7 +6,8 @@ export default function ShareActions() {
   const [copied, setCopied] = useState(false);
 
   const copyLink = async () => {
-    const url = typeof window !== "undefined" ? window.location.origin : "";
+    if (typeof window === "undefined") return;
+    const url = `${window.location.origin}${window.location.pathname}${window.location.search}`;
     if (!url) return;
     await navigator.clipboard.writeText(url);
     setCopied(true);

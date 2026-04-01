@@ -6,6 +6,7 @@ import CategoryFilter from "@/components/category-filter";
 import ProductCard from "@/components/product-card";
 import SearchBar from "@/components/search-bar";
 import { filterProductsFromRows } from "@/lib/data";
+import { appPath } from "@/lib/app-path";
 import {
   PRICE_LEVEL_LABELS,
   PRODUCT_CATEGORY_SLUGS,
@@ -40,12 +41,20 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
         <h1 className="text-xl font-semibold">猫咪用品库</h1>
         <p className="mt-1 text-sm text-zinc-600">按货架分类与价位筛选；与「选购专区」的场景清单互为补充。</p>
       </div>
-      <form className="space-y-3" method="get" action="/products" acceptCharset="UTF-8">
+      <form className="space-y-3" method="get" action={appPath("/products")} acceptCharset="UTF-8">
+        {activeCategorySlug ? <input type="hidden" name="category" value={activeCategorySlug} /> : null}
+        {priceLevel ? <input type="hidden" name="price_level" value={priceLevel} /> : null}
         <SearchBar key={`${q}-${activeCategorySlug ?? ""}-${priceLevel ?? ""}`} defaultValue={q} placeholder="搜索用品，例如：豆腐砂、猫粮" />
-        <CategoryFilter items={categories} name="category" activeValue={activeCategorySlug} />
         <CategoryFilter
+          pathname="/products"
+          items={categories}
+          paramName="category"
+          activeValue={activeCategorySlug}
+        />
+        <CategoryFilter
+          pathname="/products"
           items={levels.map((lv) => ({ value: lv, label: PRICE_LEVEL_LABELS[lv] }))}
-          name="price_level"
+          paramName="price_level"
           activeValue={priceLevel}
           allLabel="全部价格"
         />

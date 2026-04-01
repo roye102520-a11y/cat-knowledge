@@ -11,6 +11,7 @@ import {
   parseQuestionHub,
   questionCategoriesForHub,
 } from "@/lib/data";
+import { appPath } from "@/lib/app-path";
 import {
   QUESTION_CATEGORY_TO_SLUG,
   parseQuestionCategoryParam,
@@ -77,12 +78,14 @@ export default function QuestionsClient({ initialQuestions }: { initialQuestions
         })}
       </nav>
 
-      <form className="space-y-3" method="get" action="/questions" acceptCharset="UTF-8">
+      <form className="space-y-3" method="get" action={appPath("/questions")} acceptCharset="UTF-8">
         {hub ? <input type="hidden" name="hub" value={hub} /> : null}
+        {activeCategorySlug ? <input type="hidden" name="category" value={activeCategorySlug} /> : null}
         <SearchBar key={`${q}-${hub ?? ""}-${activeCategorySlug ?? ""}`} defaultValue={q} placeholder="搜索问题，例如：猫呕吐、猫抓沙发、母猫绝育" />
         <CategoryFilter
+          pathname="/questions"
           items={categories.map((c) => ({ value: QUESTION_CATEGORY_TO_SLUG[c], label: c }))}
-          name="category"
+          paramName="category"
           activeValue={activeCategorySlug}
         />
       </form>

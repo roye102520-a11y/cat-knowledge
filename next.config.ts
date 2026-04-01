@@ -11,6 +11,9 @@ const basePathRaw = (process.env.BASE_PATH || "").trim().replace(/\/$/, "");
 const basePath = basePathRaw ? basePathRaw : undefined;
 
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePathRaw,
+  },
   ...(staticExport ? { output: "export" as const } : {}),
   ...(basePath ? { basePath } : {}),
 };

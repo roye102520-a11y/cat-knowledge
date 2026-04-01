@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import ProductCard from "@/components/product-card";
 import QuestionCard from "@/components/question-card";
 import SearchHistory from "@/components/search-history";
 import SearchBar from "@/components/search-bar";
+import { appPath } from "@/lib/app-path";
 import { searchAllFromRows } from "@/lib/data";
 import type { Product, Question } from "@/lib/types";
 
@@ -57,7 +59,7 @@ export default function SearchClient({
     <div className="space-y-6">
       <section className="space-y-3">
         <h1 className="text-xl font-semibold">搜索结果</h1>
-        <form method="get" action="/search" acceptCharset="UTF-8">
+        <form method="get" action={appPath("/search")} acceptCharset="UTF-8">
           <SearchBar key={q || "empty"} defaultValue={q} placeholder="输入关键词：猫拉稀、猫掉毛、猫砂" />
         </form>
         <SearchHistory key={q || "empty"} currentQuery={q} />
@@ -68,13 +70,13 @@ export default function SearchClient({
           <p className="text-sm text-zinc-600">没有找到与“{q}”相关的内容，可以试试这些关键词：</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {suggestKeywords.map((item) => (
-              <a
+              <Link
                 key={item}
                 href={`/search?q=${encodeURIComponent(item)}`}
                 className="rounded-full border border-zinc-300 px-3 py-1 text-sm text-zinc-700 hover:bg-zinc-100"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         </section>

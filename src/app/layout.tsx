@@ -30,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className="h-full antialiased">
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className="min-h-full bg-zinc-50 text-zinc-900">
         <header className="sticky top-0 z-10 shadow-sm">
           <MainHubsNav />

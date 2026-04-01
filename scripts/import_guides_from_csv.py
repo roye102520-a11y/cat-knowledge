@@ -14,8 +14,9 @@ OUT_PATH = ROOT / "src/data/guides.json"
 NAMESPACE = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
 
 
+# 使用 ||| 分隔，避免正文中的中文分号「；」被误切分
 def split_paragraphs(raw: str) -> list[str]:
-    parts = [p.strip() for p in (raw or "").split("；") if p.strip()]
+    parts = [p.strip() for p in (raw or "").split("|||") if p.strip()]
     return parts
 
 

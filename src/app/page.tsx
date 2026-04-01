@@ -4,6 +4,7 @@ import SearchBar from "@/components/search-bar";
 import ShareActions from "@/components/share-actions";
 import homeContent from "@/data/home-content.json";
 import { getPopularQuestions } from "@/lib/data";
+import { appPath } from "@/lib/app-path";
 import { SITE_BRAND_NAME } from "@/lib/site-brand";
 import { SITE_HUBS } from "@/lib/site-hubs";
 
@@ -25,7 +26,7 @@ export default async function Home() {
         <p className="mb-4 mt-3 text-sm text-zinc-600">
           以真实搜索问题为主：先搜索，再按健康 / 行为 / 用品 / 新手指南浏览。支持 AI 从知识库检索回答。
         </p>
-        <form action="/search" acceptCharset="UTF-8" method="get">
+        <form action={appPath("/search")} acceptCharset="UTF-8" method="get">
           <SearchBar placeholder="搜索问题或用品，例如：猫拉稀、猫掉毛、猫砂" />
         </form>
         <div className="mt-3 flex flex-wrap gap-2">
