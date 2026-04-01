@@ -39,12 +39,18 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
     <div className="space-y-4">
       <div>
         <h1 className="text-xl font-semibold">猫咪用品库</h1>
-        <p className="mt-1 text-sm text-zinc-600">按货架分类与价位筛选；与「选购专区」的场景清单互为补充。</p>
+        <p className="mt-1 text-sm text-zinc-600">
+          按货架分类与价位筛选：「出行工具」含航空箱、猫包、推车、工字型牵引等；「清洁用品」「设备」见对应标签；食具梳洗等多在「护理用品」。与「选购专区」场景清单互补。
+        </p>
       </div>
       <form className="space-y-3" method="get" action={appPath("/products")} acceptCharset="UTF-8">
         {activeCategorySlug ? <input type="hidden" name="category" value={activeCategorySlug} /> : null}
         {priceLevel ? <input type="hidden" name="price_level" value={priceLevel} /> : null}
-        <SearchBar key={`${q}-${activeCategorySlug ?? ""}-${priceLevel ?? ""}`} defaultValue={q} placeholder="搜索用品，例如：豆腐砂、猫粮" />
+        <SearchBar
+          key={`${q}-${activeCategorySlug ?? ""}-${priceLevel ?? ""}`}
+          defaultValue={q}
+          placeholder="搜索用品，例如：豆腐砂、霍曼喂食器、猫粮"
+        />
         <CategoryFilter
           pathname="/products"
           items={categories}
