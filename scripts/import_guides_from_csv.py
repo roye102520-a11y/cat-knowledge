@@ -29,13 +29,15 @@ def main() -> None:
             if not title:
                 continue
             gid = str(uuid.uuid5(NAMESPACE, title))
-            out.append(
-                {
-                    "id": gid,
-                    "title": title,
-                    "content": split_paragraphs(row.get("content") or ""),
-                }
-            )
+            item: dict = {
+                "id": gid,
+                "title": title,
+                "content": split_paragraphs(row.get("content") or ""),
+            }
+            anchor = (row.get("anchor") or "").strip()
+            if anchor:
+                item["anchor"] = anchor
+            out.append(item)
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(out)} guides to {OUT_PATH}")
 

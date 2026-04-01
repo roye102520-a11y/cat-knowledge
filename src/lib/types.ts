@@ -13,7 +13,15 @@ export interface Question {
   recommended_products: string[];
 }
 
-export type ProductCategory = "猫粮" | "主食罐" | "零食" | "猫砂" | "护理用品" | "健康用品" | "玩具";
+export type ProductCategory =
+  | "猫粮"
+  | "主食罐"
+  | "零食"
+  | "猫砂"
+  | "护理用品"
+  | "驱虫"
+  | "健康用品"
+  | "玩具";
 /** 可选标注：国产 / 进口（干粮、主食罐、部分零食品牌等） */
 export type ProductOrigin = "国产" | "进口";
 export type PriceLevel = "budget" | "mid" | "premium";
@@ -35,6 +43,8 @@ export interface Guide {
   id: string;
   title: string;
   content: string[];
+  /** 可选：指南页锚点 id 后缀，最终为 `guide-${anchor}`，便于首页/外链定位 */
+  anchor?: string;
 }
 
 /** AI 问答页检索结果（客户端静态包与服务端共用结构） */

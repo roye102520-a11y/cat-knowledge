@@ -13,7 +13,7 @@ OUT_PATH = ROOT / "src/data/products.json"
 
 NAMESPACE = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
 
-VALID_CATEGORIES = frozenset({"猫粮", "主食罐", "零食", "猫砂", "护理用品", "健康用品", "玩具"})
+VALID_CATEGORIES = frozenset({"猫粮", "主食罐", "零食", "猫砂", "护理用品", "驱虫", "健康用品", "玩具"})
 VALID_LEVELS = frozenset({"budget", "mid", "premium"})
 VALID_ORIGINS = frozenset({"国产", "进口"})
 

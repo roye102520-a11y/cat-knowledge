@@ -108,6 +108,7 @@ function toProductCategory(value: string): ProductCategory {
     value === "零食" ||
     value === "猫砂" ||
     value === "护理用品" ||
+    value === "驱虫" ||
     value === "健康用品" ||
     value === "玩具"
   ) {

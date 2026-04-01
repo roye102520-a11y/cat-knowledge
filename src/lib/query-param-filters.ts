@@ -7,6 +7,7 @@ export const PRODUCT_CATEGORY_SLUGS: Record<string, ProductCategory> = {
   snack: "零食",
   litter: "猫砂",
   care: "护理用品",
+  deworm: "驱虫",
   health: "健康用品",
   toy: "玩具",
 };
@@ -17,6 +18,7 @@ export const PRODUCT_CATEGORY_TO_SLUG: Record<ProductCategory, string> = {
   零食: "snack",
   猫砂: "litter",
   护理用品: "care",
+  驱虫: "deworm",
   健康用品: "health",
   玩具: "toy",
 };
@@ -24,7 +26,16 @@ export const PRODUCT_CATEGORY_TO_SLUG: Record<ProductCategory, string> = {
 export function parseProductCategoryParam(value: string | null): ProductCategory | undefined {
   if (!value) return undefined;
   if (PRODUCT_CATEGORY_SLUGS[value]) return PRODUCT_CATEGORY_SLUGS[value];
-  const allowed: ProductCategory[] = ["猫粮", "主食罐", "零食", "猫砂", "护理用品", "健康用品", "玩具"];
+  const allowed: ProductCategory[] = [
+    "猫粮",
+    "主食罐",
+    "零食",
+    "猫砂",
+    "护理用品",
+    "驱虫",
+    "健康用品",
+    "玩具",
+  ];
   return allowed.includes(value as ProductCategory) ? (value as ProductCategory) : undefined;
 }
 
