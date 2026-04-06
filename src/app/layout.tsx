@@ -45,6 +45,15 @@ export default function RootLayout({
               <br />
               适合新手快速查阅，也适合群聊内转发分享。
             </p>
+            <p className="mt-2 text-zinc-600">
+              问题或意见欢迎发邮件：{" "}
+              <a
+                href="mailto:371243762@qq.com"
+                className="font-medium text-zinc-800 underline decoration-zinc-300 underline-offset-2 hover:text-zinc-950 hover:decoration-zinc-500"
+              >
+                371243762@qq.com
+              </a>
+            </p>
             <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
               {SITE_FOOTER_LINKS.map((l) => (
                 <Link key={l.href} href={l.href} className="text-zinc-600 underline hover:text-zinc-900">
