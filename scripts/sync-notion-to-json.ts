@@ -1,5 +1,5 @@
 /**
- * 从 Notion 拉取问题 / 用品 / 指南，写回 src/data/*.json（与站点解析逻辑一致）
+ * 从 Notion 拉取问题 / 用品 / 指南，写回 src/data/zh/*.json（中文主数据集；英文见 src/data/en/）
  * 须先配置 .env.local；须先 loadEnv 再动态 import @/lib/notion（否则 NOTION_TOKEN 未注入）
  */
 import fs from "node:fs";
@@ -47,7 +47,7 @@ async function main() {
     fetchGuidesFromNotion(),
   ]);
 
-  const dataDir = path.join(root, "src", "data");
+  const dataDir = path.join(root, "src", "data", "zh");
   const files: Array<{ name: string; data: unknown }> = [
     { name: "questions.json", data: questions },
     { name: "products.json", data: products },

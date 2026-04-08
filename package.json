@@ -15,7 +15,10 @@
     "data:import-guides": "python3 scripts/import_guides_from_csv.py",
     "data:import-products": "python3 scripts/import_products_from_csv.py",
     "data:import-local": "python3 scripts/import_questions_from_csv.py && python3 scripts/import_guides_from_csv.py && python3 scripts/import_products_from_csv.py",
-    "data:merge-downloads": "python3 scripts/merge_downloads_into_project.py"
+    "data:merge-downloads": "python3 scripts/merge_downloads_into_project.py",
+    "data:translate-en": "node scripts/translate-zh-json-to-en.mjs",
+    "data:sync-en-from-zh": "node scripts/sync-zh-data-to-en.mjs",
+    "translate:free": "node scripts/translate-free.mjs"
   },
   "dependencies": {
     "@notionhq/client": "^5.16.0",

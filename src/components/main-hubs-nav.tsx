@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, withLang, type UiLocale } from "@/lib/localized-path";
 import { SITE_BRAND_NAME } from "@/lib/site-brand";
-import { SITE_HUBS } from "@/lib/site-hubs";
+import { siteHubsForLocale } from "@/lib/site-hubs";
 
 function IconMenu(props: { className?: string }) {
   return (
@@ -25,6 +26,9 @@ function IconClose(props: { className?: string }) {
 export default function MainHubsNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const lang: UiLocale = getLocaleFromPathname(pathname);
+  const hubs = siteHubsForLocale(lang);
+  const homeHref = withLang(lang, "/");
 
   useEffect(() => {
     setOpen(false);
@@ -39,13 +43,17 @@ export default function MainHubsNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  const navAria = lang === "en" ? "Site navigation" : "站点导航";
+  const menuOpen = lang === "en" ? "Close menu" : "关闭菜单";
+  const menuClosed = lang === "en" ? "Open menu" : "打开菜单";
+
   return (
-    <nav aria-label="站点导航" className="bg-transparent">
+    <nav aria-label={navAria} className="bg-transparent">
       <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
         <div className="flex flex-col gap-0 md:flex-row md:items-center md:justify-between md:gap-6">
           <div className="flex items-center justify-between gap-4 md:justify-start">
             <Link
-              href="/"
+              href={homeHref}
               className="shrink-0 text-xl font-semibold tracking-tight text-zinc-800 decoration-transparent transition hover:text-zinc-600"
             >
               {SITE_BRAND_NAME}
@@ -57,7 +65,7 @@ export default function MainHubsNav() {
               aria-controls="main-hub-links"
               onClick={() => setOpen((v) => !v)}
             >
-              <span className="sr-only">{open ? "关闭菜单" : "打开菜单"}</span>
+              <span className="sr-only">{open ? menuOpen : menuClosed}</span>
               {open ? <IconClose className="h-6 w-6" /> : <IconMenu className="h-6 w-6" />}
             </button>
           </div>
@@ -66,7 +74,7 @@ export default function MainHubsNav() {
             className={`mt-0 flex-col gap-1 border-t py-3 md:mt-0 md:flex md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-1.5 md:border-0 md:py-0 ${open ? "flex" : "hidden md:flex"}`}
             style={{ borderColor: "var(--header-border)" }}
           >
-            {SITE_HUBS.map((hub) => (
+            {hubs.map((hub) => (
               <li key={hub.href} className="w-full md:w-auto">
                 <Link
                   href={hub.href}

@@ -1,9 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import type { UiLocale } from "@/lib/localized-path";
 
-export default function ShareActions() {
+const ui = {
+  zh: { copy: "复制分享链接", copied: "已复制，可直接发群", hint: "适合群聊转发" },
+  en: { copy: "Copy link", copied: "Copied", hint: "Good for chats & groups" },
+};
+
+export default function ShareActions({ lang = "zh" }: { lang?: UiLocale }) {
   const [copied, setCopied] = useState(false);
+  const t = ui[lang];
 
   const copyLink = async () => {
     if (typeof window === "undefined") return;
@@ -21,10 +28,10 @@ export default function ShareActions() {
         onClick={copyLink}
         className="rounded-xl bg-zinc-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
       >
-        复制分享链接
+        {t.copy}
       </button>
       <span className="rounded-xl border border-zinc-200/90 bg-zinc-50/80 px-4 py-2.5 text-sm text-zinc-600">
-        {copied ? "已复制，可直接发群" : "适合群聊转发"}
+        {copied ? t.copied : t.hint}
       </span>
     </div>
   );

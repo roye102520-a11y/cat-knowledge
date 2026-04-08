@@ -8,9 +8,11 @@ const MAX_ITEMS = 5;
 
 interface SearchHistoryProps {
   currentQuery?: string;
+  /** 已含语言前缀，如 /zh/search */
+  searchPath: string;
 }
 
-export default function SearchHistory({ currentQuery }: SearchHistoryProps) {
+export default function SearchHistory({ currentQuery, searchPath }: SearchHistoryProps) {
   const [history, setHistory] = useState<string[]>(() => {
     if (typeof window === "undefined") return [];
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -60,7 +62,7 @@ export default function SearchHistory({ currentQuery }: SearchHistoryProps) {
         {history.map((item) => (
           <Link
             key={item}
-            href={`/search?q=${encodeURIComponent(item)}`}
+            href={`${searchPath}?q=${encodeURIComponent(item)}`}
             className="rounded-full border border-zinc-300 px-3 py-1 text-sm text-zinc-700 hover:bg-zinc-100"
           >
             {item}

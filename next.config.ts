@@ -16,6 +16,35 @@ const nextConfig: NextConfig = {
   },
   ...(staticExport ? { output: "export" as const } : {}),
   ...(basePath ? { basePath } : {}),
+  /** 仅非静态导出时生效（output: export 不支持自定义 redirects） */
+  ...(!staticExport
+    ? {
+        async redirects() {
+          const tops = [
+            "questions",
+            "products",
+            "search",
+            "guide",
+            "guides",
+            "foods",
+            "ai",
+            "zones",
+            "articles",
+          ] as const;
+          const rules: { source: string; destination: string; permanent: boolean }[] = [
+            { source: "/", destination: "/zh", permanent: false },
+          ];
+          for (const t of tops) {
+            rules.push(
+              { source: `/${t}`, destination: `/zh/${t}`, permanent: true },
+              { source: `/${t}/:path*`, destination: `/zh/${t}/:path*`, permanent: true },
+            );
+          }
+          rules.push({ source: "/wiki/:path*", destination: "/zh/wiki/:path*", permanent: true });
+          return rules;
+        },
+      }
+    : {}),
 };
 
 export default nextConfig;

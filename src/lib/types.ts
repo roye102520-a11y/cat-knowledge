@@ -10,6 +10,9 @@ export type QuestionCategory = "肠胃问题" | "行为问题" | "护理问题" 
 /** URL 参数 hub：疾病库 / 行为库；未传或非法值视为「问题库（核心）」全量 */
 export type QuestionHubParam = "disease" | "behavior";
 
+/** 与 `src/data/{zh,en}/*.json` 对齐；纯类型、无 Node/fs，可安全用于 Client Components */
+export type DataLocale = "zh" | "en";
+
 export interface Question {
   id: string;
   title: string;

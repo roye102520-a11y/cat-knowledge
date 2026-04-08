@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 src/data/notion-import/products.csv 生成 src/data/products.json。"""
+"""从 src/data/notion-import/products.csv 生成 src/data/zh/products.json。"""
 from __future__ import annotations
 
 import csv
@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "src/data/notion-import/products.csv"
-OUT_PATH = ROOT / "src/data/products.json"
+OUT_PATH = ROOT / "src/data/zh/products.json"
 
 NAMESPACE = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
 
