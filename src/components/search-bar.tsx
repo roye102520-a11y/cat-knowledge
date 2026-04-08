@@ -24,7 +24,7 @@ export default function SearchBar({
         />
         <button
           type="submit"
-          className="h-12 shrink-0 rounded-xl bg-zinc-900 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:scale-[0.99] sm:ml-1 sm:w-auto sm:px-8"
+          className="btn-primary-soft h-12 min-h-12 shrink-0 border-0 px-6 text-sm shadow-none sm:ml-1 sm:w-auto sm:px-8"
         >
           搜索
         </button>

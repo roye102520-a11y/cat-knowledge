@@ -39,5 +39,6 @@ export const SITE_HUBS: {
 /** 二级入口：场景选购清单 */
 export const SITE_FOOTER_LINKS: { href: string; label: string }[] = [
   { href: "/articles", label: "科普长文" },
+  { href: "/foods", label: "饮食禁忌" },
   { href: "/zones", label: "选购专区" },
 ];

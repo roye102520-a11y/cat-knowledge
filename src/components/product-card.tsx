@@ -4,7 +4,7 @@ import Tag from "@/components/tag";
 
 export default function ProductCard({ product, keyword }: { product: Product; keyword?: string }) {
   return (
-    <article className="rounded-xl border border-zinc-200 bg-white p-4 transition hover:border-zinc-300 hover:shadow-sm">
+    <article className="app-card p-4">
       <div className="mb-2 flex flex-wrap gap-2">
         <Tag>{product.category}</Tag>
         <Tag>{product.type}</Tag>
@@ -29,7 +29,7 @@ export default function ProductCard({ product, keyword }: { product: Product; ke
             href={product.purchase_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg bg-amber-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-amber-700"
+            className="btn-primary-soft text-sm no-underline"
           >
             直达商品
           </a>

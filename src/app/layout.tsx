@@ -33,12 +33,15 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
       </head>
-      <body className="min-h-full text-zinc-900" style={{ backgroundColor: "var(--page-bg)" }}>
-        <header className="sticky top-0 z-10 border-b border-zinc-200/80 bg-white/90 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-md">
+      <body className="min-h-full">
+        <header
+          className="sticky top-0 z-10 border-b shadow-[0_1px_0_rgba(66,42,40,0.04)] backdrop-blur-md"
+          style={{ background: "var(--header-bg)", borderColor: "var(--header-border)" }}
+        >
           <MainHubsNav />
         </header>
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">{children}</main>
-        <footer className="mt-8 border-t border-zinc-200 bg-white">
+        <footer className="mt-8 border-t" style={{ background: "var(--footer-bg)", borderColor: "var(--footer-border)" }}>
           <div className="mx-auto max-w-6xl px-4 py-5 text-xs leading-6 text-zinc-500 sm:px-6">
             <p>
               群友经验仅供参考，健康问题不能替代专业兽医诊断。

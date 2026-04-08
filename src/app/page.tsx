@@ -20,10 +20,7 @@ export default async function Home() {
 
   return (
     <div className="space-y-8 sm:space-y-10">
-      <section
-        className="rounded-3xl border border-zinc-200/90 bg-white px-5 py-8 sm:px-8 sm:py-10"
-        style={{ boxShadow: "var(--shadow-elevated)" }}
-      >
+      <section className="app-panel px-5 py-8 sm:px-8 sm:py-10">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-zinc-500">知识库 · 服务入口</p>
         <h1 className="mt-2 max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl sm:leading-tight">
           {SITE_BRAND_NAME}
@@ -53,10 +50,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section
-        className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6"
-        style={{ boxShadow: "var(--shadow-elevated)" }}
-      >
+      <section className="app-panel p-5 sm:p-6">
         <h2 className="mb-1 text-lg font-semibold tracking-tight text-zinc-900 sm:text-xl">常见问题入口</h2>
         <p className="mb-4 text-sm text-zinc-600">按高频需求进对应分类；更多从顶部导航进入。</p>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -64,8 +58,7 @@ export default async function Home() {
             <Link
               key={c.href + c.title}
               href={c.href}
-              className="rounded-2xl border border-zinc-200/90 bg-white p-3.5 text-left transition hover:border-zinc-300 hover:shadow-md sm:p-4"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}
+              className="app-card block p-3.5 text-left no-underline transition sm:p-4"
             >
               <div className="text-lg leading-none">{c.emoji}</div>
               <div className="mt-1 text-sm font-semibold text-zinc-900">{c.title}</div>
@@ -75,10 +68,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section
-        className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6"
-        style={{ boxShadow: "var(--shadow-elevated)" }}
-      >
+      <section className="app-panel p-5 sm:p-6">
         <h2 className="mb-1 text-lg font-semibold tracking-tight text-zinc-900 sm:text-xl">全部入口</h2>
         <p className="mb-4 text-sm text-zinc-600">与顶部导航一致；大屏可作目录卡片。</p>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -86,8 +76,7 @@ export default async function Home() {
             <Link
               key={card.href}
               href={card.href}
-              className="rounded-2xl border border-zinc-200/90 bg-white p-4 text-left transition hover:border-zinc-300 hover:shadow-md sm:p-5"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}
+              className="app-card block p-4 text-left no-underline transition sm:p-5"
             >
               <div className="text-sm font-semibold text-zinc-900">{card.title}</div>
               <p className="mt-1 text-xs leading-relaxed text-zinc-600">{card.description}</p>

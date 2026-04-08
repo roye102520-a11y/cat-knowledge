@@ -5,7 +5,7 @@ export default function GuideCard({ guide }: { guide: Guide }) {
   return (
     <article
       id={anchorId}
-      className={`scroll-mt-24 rounded-xl border border-zinc-200 bg-white p-4 transition hover:border-zinc-300 hover:shadow-sm`}
+      className={`app-card scroll-mt-24 p-4`}
     >
       <h3 className="text-base font-semibold text-zinc-900">{guide.title}</h3>
       <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-700">

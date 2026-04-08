@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { marked } from "marked";
+import { renderMarkdownWithToc, type ArticleTocItem } from "@/lib/article-markdown";
 
 const SEO_DIR = path.join(process.cwd(), "content", "seo-articles");
 
@@ -18,7 +18,10 @@ export type SeoArticle = {
   meta: SeoArticleMeta;
   bodyMarkdown: string;
   html: string;
+  toc: ArticleTocItem[];
 };
+
+export type { ArticleTocItem };
 
 function unquote(s: string): string {
   const t = s.trim();
@@ -64,8 +67,8 @@ export function loadSeoArticle(slug: string): SeoArticle | null {
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf8");
   const { meta, body } = parseFrontMatter(raw);
-  const html = marked.parse(body, { async: false }) as string;
-  return { slug: safe, meta, bodyMarkdown: body, html };
+  const { html, toc } = renderMarkdownWithToc(body);
+  return { slug: safe, meta, bodyMarkdown: body, html, toc };
 }
 
 export function pageTitle(meta: SeoArticleMeta): string {

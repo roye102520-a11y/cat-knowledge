@@ -1,3 +1,10 @@
+/** 饮食禁忌条目：`safe === true` 为可安全接触（仍需适量与个体差异），`false` 为禁食或强烈不建议 */
+export interface CatFoodItem {
+  name: string;
+  safe: boolean;
+  reason: string;
+}
+
 export type QuestionCategory = "肠胃问题" | "行为问题" | "护理问题" | "健康问题";
 
 /** URL 参数 hub：疾病库 / 行为库；未传或非法值视为「问题库（核心）」全量 */

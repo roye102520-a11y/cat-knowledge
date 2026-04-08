@@ -1,12 +1,33 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #18181b;
-  /* 参考 Airbnb 类营销页：浅灰底 + 柔和幕帘阴影 */
-  --page-bg: #f7f7f7;
-  --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 2px 8px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
+  /* 治愈感：暖米色底 + 猫爪粉主色 */
+  --background: #fdfbf7;
+  --foreground: #3f3f46;
+  --page-bg: #fdfbf7;
+  --color-primary: #ffb7b2;
+  --color-primary-hover: #ff9e97;
+  --color-primary-foreground: #422a28;
+  --color-primary-muted: rgba(255, 183, 178, 0.35);
+
+  --card-radius: 16px;
+  --card-bg: #ffffff;
+  --card-border: rgba(61, 37, 32, 0.08);
+  --card-border-hover: rgba(61, 37, 32, 0.14);
+  --card-shadow: 0 2px 8px rgba(66, 42, 40, 0.06), 0 1px 2px rgba(66, 42, 40, 0.04);
+  --card-shadow-hover: 0 8px 24px rgba(66, 42, 40, 0.1), 0 2px 8px rgba(66, 42, 40, 0.06);
+
+  --shadow-elevated: var(--card-shadow);
+  --shadow-card-hover: var(--card-shadow-hover);
+
+  --header-bg: rgba(253, 251, 247, 0.92);
+  --header-border: rgba(61, 37, 32, 0.1);
+  --footer-bg: #faf6f0;
+  --footer-border: rgba(61, 37, 32, 0.08);
 }
 
 @theme inline {
@@ -15,10 +36,78 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--page-bg);
   color: var(--foreground);
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+/* 站内卡片：16px 圆角 + 浅阴影 */
+.app-card {
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.app-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* 大区块（首页 hero 等）：同套变量，可按需叠加大圆角 */
+.app-panel {
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
+.btn-primary-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: calc(var(--card-radius) - 4px);
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-primary-soft:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-primary-soft:active {
+  transform: scale(0.98);
+}
+
+/* 猫咪百科卡片：悬停轻浮起 */
+.encyclopedia-card {
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
+}
+
+.encyclopedia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
 }
 
 /* Markdown SEO 长文（marked 输出） */
@@ -33,14 +122,14 @@ body {
   margin-bottom: 0.75rem;
   font-weight: 600;
   line-height: 1.35;
-  color: #18181b;
+  color: var(--foreground);
 }
 .seo-article-body h1 {
   font-size: 1.25rem;
 }
 .seo-article-body h2 {
   font-size: 1.125rem;
-  border-bottom: 1px solid #e4e4e7;
+  border-bottom: 1px solid var(--card-border);
   padding-bottom: 0.35rem;
 }
 .seo-article-body h1:first-child,
@@ -48,16 +137,17 @@ body {
   margin-top: 0;
 }
 .seo-article-body p {
-  margin: 0.65rem 0;
+  margin: 0.85rem 0;
+  line-height: 1.75;
 }
 .seo-article-body hr {
   margin: 1.5rem 0;
   border: 0;
-  border-top: 1px solid #e4e4e7;
+  border-top: 1px solid var(--card-border);
 }
 .seo-article-body strong {
   font-weight: 600;
-  color: #18181b;
+  color: var(--foreground);
 }
 .seo-article-body ul,
 .seo-article-body ol {
@@ -68,6 +158,68 @@ body {
   margin: 0.35rem 0;
 }
 .seo-article-body a {
-  color: #713f12;
+  color: #9d3d38;
   text-decoration: underline;
+}
+
+.seo-article-body h3 {
+  margin-top: 1.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.seo-article-body h3:first-child {
+  margin-top: 0;
+}
+
+.seo-article-body blockquote {
+  margin: 1.15rem 0;
+  padding: 0.9rem 1.15rem;
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 14px 14px 0;
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--card-bg));
+}
+
+.seo-article-body pre {
+  margin: 1.2rem 0;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  overflow-x: auto;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 22%, transparent) 0%,
+    var(--page-bg) 42%,
+    color-mix(in srgb, #fcd34d 25%, var(--page-bg)) 100%
+  );
+}
+
+.seo-article-body pre code {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@keyframes article-paw-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.35) rotate(-12deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.12) rotate(4deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -220%) scale(0.95) rotate(-6deg);
+    opacity: 0;
+  }
+}
+
+.article-paw-pop {
+  animation: article-paw-pop 0.85s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+  filter: drop-shadow(0 2px 4px rgba(66, 42, 40, 0.15));
 }
