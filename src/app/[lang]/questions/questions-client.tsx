@@ -13,6 +13,7 @@ import {
   questionHubUiLabel,
 } from "@/lib/knowledge-filters";
 import { appPath } from "@/lib/app-path";
+import { hubPageTitle } from "@/lib/hub-ui-i18n";
 import type { UiLocale } from "@/lib/localized-path";
 import { withLang } from "@/lib/localized-path";
 import {
@@ -40,7 +41,7 @@ const copy = {
   zh: {
     diseaseTitle: "猫咪健康",
     behaviorTitle: "猫咪行为",
-    coreTitle: "养猫问题",
+    coreTitle: hubPageTitle("questions", "zh"),
     diseaseSub:
       "涵盖肠胃与症状护理、皮肤与被毛照护、健康与老年相关问答；严重或急性情况请尽早就医。",
     behaviorSub: "乱尿乱抓、应激、作息与多猫相处等行为向经验；若伴随病痛需先排除医学原因。",
@@ -52,7 +53,7 @@ const copy = {
   en: {
     diseaseTitle: "Cat health",
     behaviorTitle: "Behavior",
-    coreTitle: "Questions",
+    coreTitle: hubPageTitle("questions", "en"),
     diseaseSub: "Digestion, symptoms, skin and senior care Q&A. Seek a vet for emergencies.",
     behaviorSub: "Litter issues, scratching, stress and routines. Rule out pain or illness first.",
     coreSub: "Search and filter user-style questions across the library.",

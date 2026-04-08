@@ -13,6 +13,7 @@ import {
   type WikiLocale,
 } from "@/lib/wiki-articles";
 import { englishDocumentTitle } from "@/lib/site-brand";
+import { hubBreadcrumbLabel } from "@/lib/hub-ui-i18n";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -70,10 +71,10 @@ export default async function WikiArticlePage({ params }: Props) {
     <article className="space-y-6">
       <nav className="text-sm text-zinc-600">
         <Link href={homeHref} className="underline hover:text-zinc-900">
-          {L === "en" ? "Home" : "首页"}
+          {hubBreadcrumbLabel("home", L)}
         </Link>
         <span className="mx-2">/</span>
-        <span className="text-zinc-700">Wiki</span>
+        <span className="text-zinc-700">{hubBreadcrumbLabel("wiki", L)}</span>
         <span className="mx-2">/</span>
         <span className="text-zinc-900">{title}</span>
       </nav>
@@ -84,7 +85,7 @@ export default async function WikiArticlePage({ params }: Props) {
           zhHref={withLang("zh", `/wiki/${article.slug}`)}
           zhTitle={wikiPageTitle(article.meta, "zh")}
           listHref={homeHref}
-          listLabel="Home"
+          listLabel={hubBreadcrumbLabel("home", L)}
         />
       ) : null}
 
@@ -92,7 +93,7 @@ export default async function WikiArticlePage({ params }: Props) {
         <ZhRouteEnglishBodyHint
           enHref={withLang("en", `/wiki/${article.slug}`)}
           listHref={homeHref}
-          listLabel={L === "en" ? "Home" : "首页"}
+          listLabel={hubBreadcrumbLabel("home", L)}
         />
       ) : null}
 

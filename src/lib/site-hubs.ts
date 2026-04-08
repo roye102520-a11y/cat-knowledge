@@ -1,4 +1,5 @@
 import type { UiLocale } from "@/lib/localized-path";
+import { hubNavLabel } from "@/lib/hub-ui-i18n";
 import { withLang } from "@/lib/localized-path";
 
 export type SiteHubDef = {
@@ -13,8 +14,8 @@ export type SiteHubDef = {
 export const SITE_HUBS_DEF: SiteHubDef[] = [
   {
     href: "/questions",
-    titleZh: "养猫问题",
-    titleEn: "Q&A",
+    titleZh: hubNavLabel("questions", "zh"),
+    titleEn: hubNavLabel("questions", "en"),
     descriptionZh: "以真实搜索问题为主：全库检索与分类筛选。",
     descriptionEn: "Browse and search real user-style cat care questions.",
   },
@@ -34,15 +35,15 @@ export const SITE_HUBS_DEF: SiteHubDef[] = [
   },
   {
     href: "/products",
-    titleZh: "猫咪用品",
-    titleEn: "Products",
+    titleZh: hubNavLabel("products", "zh"),
+    titleEn: hubNavLabel("products", "en"),
     descriptionZh: "猫粮、猫砂、玩具等；未来可承接推荐与变现。",
     descriptionEn: "Food, litter, toys and gear from the product library.",
   },
   {
     href: "/guide",
-    titleZh: "新手指南",
-    titleEn: "New cat guide",
+    titleZh: hubNavLabel("guide", "zh"),
+    titleEn: hubNavLabel("guide", "en"),
     descriptionZh: "接猫、清单、喂养与环境长文（含文档摘录）。",
     descriptionEn: "Checklists, settling in, feeding and environment notes.",
   },
@@ -83,9 +84,9 @@ export type SiteFooterLinkDef = {
 };
 
 export const SITE_FOOTER_LINKS_DEF: SiteFooterLinkDef[] = [
-  { href: "/articles", labelZh: "科普长文", labelEn: "Articles" },
-  { href: "/foods", labelZh: "饮食禁忌", labelEn: "Food safety" },
-  { href: "/zones", labelZh: "选购专区", labelEn: "Buying zones" },
+  { href: "/articles", labelZh: hubNavLabel("articles", "zh"), labelEn: hubNavLabel("articles", "en") },
+  { href: "/foods", labelZh: hubNavLabel("foods", "zh"), labelEn: hubNavLabel("foods", "en") },
+  { href: "/zones", labelZh: hubNavLabel("zones", "zh"), labelEn: hubNavLabel("zones", "en") },
 ];
 
 export function siteFooterLinksForLocale(lang: UiLocale): { href: string; label: string }[] {

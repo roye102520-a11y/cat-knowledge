@@ -10,6 +10,7 @@ import {
   pageTitleForLocale,
 } from "@/lib/seo-articles";
 import { englishDocumentTitle } from "@/lib/site-brand";
+import { hubPageTitle } from "@/lib/hub-ui-i18n";
 
 const ui = {
   zh: {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang: raw } = await params;
   const lang = isUiLocale(raw) ? raw : "zh";
   if (lang === "en") {
-    const titleAbs = englishDocumentTitle("Articles");
+    const titleAbs = englishDocumentTitle(hubPageTitle("articles", "en"));
     const description = "Long-form cat care articles (bilingual sections).";
     return {
       title: { absolute: titleAbs },
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       twitter: { card: "summary", title: titleAbs, description },
     };
   }
-  const title = "科普长文";
+  const title = hubPageTitle("articles", "zh");
   const description = "SEO 向养猫科普长文（中英双语小节），可静态托管分享。";
   return {
     title,

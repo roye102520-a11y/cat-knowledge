@@ -2,22 +2,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/product-card";
 import { getZonesWithProducts } from "@/lib/data";
+import { hubPageTitle } from "@/lib/hub-ui-i18n";
 import { isUiLocale, type UiLocale } from "@/lib/localized-path";
 import { withLang } from "@/lib/localized-path";
 
 const ui = {
   zh: {
-    title: "选购专区",
+    title: hubPageTitle("zones", "zh"),
     lead: "按「场景 / 养猫路径」分组展示用品；与「猫咪用品库」的货架分类是两套维度——这里偏真实动线，用品库偏品类与价位。",
-    productsLink: "猫咪用品库",
-    guideLink: "新手养猫指南",
+    productsLink: hubPageTitle("products", "zh"),
+    guideLink: hubPageTitle("guide", "zh"),
   },
   en: {
-    title: "Buying zones",
+    title: hubPageTitle("zones", "en"),
     lead: "Products grouped by real-life scenarios; the product library is organized by shelf category and price.",
     foot: "Also open:",
-    productsLink: "Product library",
-    guideLink: "New cat guide",
+    productsLink: hubPageTitle("products", "en"),
+    guideLink: hubPageTitle("guide", "en"),
   },
 } as const;
 

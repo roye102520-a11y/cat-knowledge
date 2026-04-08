@@ -1,15 +1,16 @@
 import { notFound } from "next/navigation";
 import GuideCard from "@/components/guide-card";
 import { getGuides } from "@/lib/data";
+import { hubPageTitle } from "@/lib/hub-ui-i18n";
 import { isUiLocale, type UiLocale } from "@/lib/localized-path";
 
 const ui = {
   zh: {
-    title: "新手养猫指南",
+    title: hubPageTitle("guides", "zh"),
     lead: "包含新手养猫清单、接猫第一周、幼猫注意事项。",
   },
   en: {
-    title: "New cat guide",
+    title: hubPageTitle("guides", "en"),
     lead: "Checklists and first-week notes (same content as /guide).",
   },
 } as const;

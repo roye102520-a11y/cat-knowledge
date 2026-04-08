@@ -7,6 +7,7 @@ import ProductCard from "@/components/product-card";
 import SearchBar from "@/components/search-bar";
 import { filterProductsFromRows } from "@/lib/knowledge-filters";
 import { appPath } from "@/lib/app-path";
+import { hubPageTitle } from "@/lib/hub-ui-i18n";
 import type { UiLocale } from "@/lib/localized-path";
 import { withLang } from "@/lib/localized-path";
 import {
@@ -22,7 +23,7 @@ const levels: PriceLevel[] = ["budget", "mid", "premium"];
 
 const copy = {
   zh: {
-    title: "猫咪用品库",
+    title: hubPageTitle("products", "zh"),
     subtitle:
       "按货架分类与价位筛选：「出行工具」含航空箱、猫包、推车、工字型牵引等；「清洁用品」「设备」见对应标签；食具梳洗等多在「护理用品」。与「选购专区」场景清单互补。",
     placeholder: "搜索用品，例如：豆腐砂、霍曼喂食器、猫粮",
@@ -30,7 +31,7 @@ const copy = {
     empty: "没有找到匹配的用品。",
   },
   en: {
-    title: "Product library",
+    title: hubPageTitle("products", "en"),
     subtitle:
       "Filter by shelf category and price band. See Buying zones for scenario-based lists; this page is organized by product type.",
     placeholder: "Search: litter, feeder, dry food…",

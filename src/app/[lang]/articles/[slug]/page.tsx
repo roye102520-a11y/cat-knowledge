@@ -13,6 +13,7 @@ import {
   type SeoArticle,
 } from "@/lib/seo-articles";
 import { englishDocumentTitle } from "@/lib/site-brand";
+import { hubBreadcrumbLabel } from "@/lib/hub-ui-i18n";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -71,7 +72,7 @@ function ArticleLayout({
   const showToc = article.toc.length > 0;
   const title = pageTitleForLocale(article.meta, lang);
   const desc = pageDescriptionForLocale(article.meta, lang);
-  const crumbLabel = lang === "en" ? "Articles" : "科普长文";
+  const crumbLabel = hubBreadcrumbLabel("articles", lang);
 
   return (
     <article className="space-y-6">
@@ -89,7 +90,7 @@ function ArticleLayout({
           zhHref={withLang("zh", `/articles/${slug}`)}
           zhTitle={pageTitleForLocale(article.meta, "zh")}
           listHref={withLang("en", "/articles")}
-          listLabel="All articles"
+          listLabel={hubBreadcrumbLabel("articles", "en")}
         />
       ) : null}
 
