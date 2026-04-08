@@ -129,7 +129,7 @@ export default async function LangHomePage({ params }: Props) {
         <h2 className="text-lg font-semibold tracking-tight text-zinc-900 sm:text-xl">{u.sectionHot}</h2>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           {popularQuestions.map((question) => (
-            <QuestionCard key={question.id} question={question} />
+            <QuestionCard key={question.id} question={question} lang={lang} />
           ))}
         </div>
       </section>

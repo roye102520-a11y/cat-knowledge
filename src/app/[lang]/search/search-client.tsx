@@ -127,7 +127,7 @@ export default function SearchClient({
           <h2 className="text-lg font-semibold">{c.relatedQ(sortedQuestions.length)}</h2>
           <div className="grid grid-cols-1 gap-3">
             {sortedQuestions.map((question) => (
-              <QuestionCard key={question.id} question={question} keyword={q} />
+              <QuestionCard key={question.id} question={question} keyword={q} lang={lang} />
             ))}
           </div>
           {sortedQuestions.length === 0 ? <p className="text-sm text-zinc-500">{c.emptyQ}</p> : null}

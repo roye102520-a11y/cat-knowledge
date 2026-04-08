@@ -19,6 +19,7 @@ import {
   parseQuestionCategoryParam,
 } from "@/lib/query-param-filters";
 import type { Question, QuestionCategory, QuestionHubParam } from "@/lib/types";
+import { questionCategoryUiLabel } from "@/lib/question-ui-i18n";
 
 function hubTabs(lang: UiLocale) {
   if (lang === "en") {
@@ -119,7 +120,10 @@ export default function QuestionsClient({
         <SearchBar key={`${q}-${hub ?? ""}-${activeCategorySlug ?? ""}`} defaultValue={q} placeholder={c.searchPh} />
         <CategoryFilter
           pathname={questionsPath}
-          items={categories.map((cat: QuestionCategory) => ({ value: QUESTION_CATEGORY_TO_SLUG[cat], label: cat }))}
+          items={categories.map((cat: QuestionCategory) => ({
+            value: QUESTION_CATEGORY_TO_SLUG[cat],
+            label: questionCategoryUiLabel(cat, lang),
+          }))}
           paramName="category"
           activeValue={activeCategorySlug}
           allLabel={lang === "en" ? "All" : "全部"}
@@ -128,7 +132,7 @@ export default function QuestionsClient({
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {questions.map((question) => (
-          <QuestionCard key={question.id} question={question} />
+          <QuestionCard key={question.id} question={question} lang={lang} />
         ))}
       </div>
       {questions.length === 0 ? <p className="text-sm text-zinc-500">{c.empty}</p> : null}

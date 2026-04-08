@@ -98,7 +98,7 @@ export default function AiClient({
               <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">{c.relQ}</h3>
               <div className="grid gap-3 md:grid-cols-2">
                 {result.related_questions.map((q) => (
-                  <QuestionCard key={q.id} question={q} />
+                  <QuestionCard key={q.id} question={q} lang={lang} />
                 ))}
               </div>
             </div>
