@@ -1,4 +1,4 @@
-/** 全站主导航：5 个内容菜单 + AI 问答；选购专区见页脚 */
+/** 全站主导航：内容菜单 + AI 问答；选购专区见页脚 */
 export const SITE_HUBS: {
   href: string;
   title: string;
@@ -28,6 +28,11 @@ export const SITE_HUBS: {
     href: "/guide",
     title: "新手指南",
     description: "接猫、清单、喂养与环境长文（含文档摘录）。",
+  },
+  {
+    href: "/foods",
+    title: "饮食禁忌",
+    description: "常见食物能不能吃：对照表检索，红绿标签快速区分风险。",
   },
   {
     href: "/ai",
