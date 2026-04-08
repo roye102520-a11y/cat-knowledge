@@ -10,18 +10,13 @@ import { appPath } from "@/lib/app-path";
 import type { UiLocale } from "@/lib/localized-path";
 import { withLang } from "@/lib/localized-path";
 import {
-  PRICE_LEVEL_LABELS,
-  PRODUCT_CATEGORY_SLUGS,
+  priceLevelUiLabel,
+  productCategoryFilterItems,
   PRODUCT_CATEGORY_TO_SLUG,
   parsePriceLevelParam,
   parseProductCategoryParam,
 } from "@/lib/query-param-filters";
 import type { PriceLevel, Product } from "@/lib/types";
-
-const categories = Object.entries(PRODUCT_CATEGORY_SLUGS).map(([value, label]) => ({
-  value,
-  label,
-}));
 
 const levels: PriceLevel[] = ["budget", "mid", "premium"];
 
@@ -58,6 +53,7 @@ export default function ProductsClient({
   const category = parseProductCategoryParam(searchParams.get("category"));
   const priceLevel = parsePriceLevelParam(searchParams.get("price_level"));
   const activeCategorySlug = category ? PRODUCT_CATEGORY_TO_SLUG[category] : undefined;
+  const categories = useMemo(() => productCategoryFilterItems(lang), [lang]);
 
   const products = useMemo(
     () => filterProductsFromRows(initialProducts, q, category, priceLevel, lang),
@@ -87,7 +83,7 @@ export default function ProductsClient({
         />
         <CategoryFilter
           pathname={productsPath}
-          items={levels.map((lv) => ({ value: lv, label: PRICE_LEVEL_LABELS[lv] }))}
+          items={levels.map((lv) => ({ value: lv, label: priceLevelUiLabel(lv, lang) }))}
           paramName="price_level"
           activeValue={priceLevel}
           allLabel={c.allPrices}

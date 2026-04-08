@@ -1,4 +1,4 @@
-import type { PriceLevel, ProductCategory, QuestionCategory } from "./types";
+import type { DataLocale, PriceLevel, ProductCategory, QuestionCategory } from "./types";
 
 /** 用品分类：URL 参数只用 slug，避免表单 GET 提交时中文乱码 */
 export const PRODUCT_CATEGORY_SLUGS: Record<string, ProductCategory> = {
@@ -27,6 +27,20 @@ export const PRODUCT_CATEGORY_TO_SLUG: Record<ProductCategory, string> = {
   健康用品: "health",
   出行工具: "travel",
   玩具: "toy",
+};
+
+const PRODUCT_CATEGORY_I18N: Record<ProductCategory, { zh: string; en: string }> = {
+  猫粮: { zh: "猫粮", en: "Dry food" },
+  主食罐: { zh: "主食罐", en: "Wet food" },
+  零食: { zh: "零食", en: "Treats" },
+  猫砂: { zh: "猫砂", en: "Litter" },
+  护理用品: { zh: "护理用品", en: "Care" },
+  清洁用品: { zh: "清洁用品", en: "Cleaning" },
+  设备: { zh: "设备", en: "Devices" },
+  驱虫: { zh: "驱虫", en: "Deworming" },
+  健康用品: { zh: "健康用品", en: "Health" },
+  出行工具: { zh: "出行工具", en: "Travel" },
+  玩具: { zh: "玩具", en: "Toys" },
 };
 
 export function parseProductCategoryParam(value: string | null): ProductCategory | undefined {
@@ -79,6 +93,27 @@ export const PRICE_LEVEL_LABELS: Record<PriceLevel, string> = {
   mid: "中档",
   premium: "高端",
 };
+
+const PRICE_LEVEL_I18N: Record<PriceLevel, { zh: string; en: string }> = {
+  budget: { zh: "入门 / 性价比", en: "Budget / value" },
+  mid: { zh: "中档", en: "Mid range" },
+  premium: { zh: "高端", en: "Premium" },
+};
+
+export function productCategoryUiLabel(category: ProductCategory, lang: DataLocale): string {
+  return PRODUCT_CATEGORY_I18N[category][lang];
+}
+
+export function productCategoryFilterItems(lang: DataLocale): Array<{ value: string; label: string }> {
+  return Object.entries(PRODUCT_CATEGORY_SLUGS).map(([value, category]) => ({
+    value,
+    label: productCategoryUiLabel(category, lang),
+  }));
+}
+
+export function priceLevelUiLabel(level: PriceLevel, lang: DataLocale): string {
+  return PRICE_LEVEL_I18N[level][lang];
+}
 
 export function parsePriceLevelParam(value: string | null): PriceLevel | undefined {
   if (value === "budget" || value === "mid" || value === "premium") {

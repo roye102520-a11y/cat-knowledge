@@ -9,7 +9,8 @@ import SearchBar from "@/components/search-bar";
 import {
   filterQuestionsFromRows,
   parseQuestionHub,
-  questionCategoriesForHub,
+  questionCategoryOptionsForHub,
+  questionHubUiLabel,
 } from "@/lib/knowledge-filters";
 import { appPath } from "@/lib/app-path";
 import type { UiLocale } from "@/lib/localized-path";
@@ -18,21 +19,20 @@ import {
   QUESTION_CATEGORY_TO_SLUG,
   parseQuestionCategoryParam,
 } from "@/lib/query-param-filters";
-import type { Question, QuestionCategory, QuestionHubParam } from "@/lib/types";
-import { questionCategoryUiLabel } from "@/lib/question-ui-i18n";
+import type { Question, QuestionHubParam } from "@/lib/types";
 
 function hubTabs(lang: UiLocale) {
   if (lang === "en") {
     return [
-      { key: "core" as const, label: "All questions", href: withLang(lang, "/questions") },
-      { key: "disease" as const, label: "Health", href: withLang(lang, "/questions?hub=disease") },
-      { key: "behavior" as const, label: "Behavior", href: withLang(lang, "/questions?hub=behavior") },
+      { key: "core" as const, label: questionHubUiLabel(undefined, lang), href: withLang(lang, "/questions") },
+      { key: "disease" as const, label: questionHubUiLabel("disease", lang), href: withLang(lang, "/questions?hub=disease") },
+      { key: "behavior" as const, label: questionHubUiLabel("behavior", lang), href: withLang(lang, "/questions?hub=behavior") },
     ];
   }
   return [
-    { key: "core" as const, label: "养猫问题（全部）", href: withLang(lang, "/questions") },
-    { key: "disease" as const, label: "猫咪健康", href: withLang(lang, "/questions?hub=disease") },
-    { key: "behavior" as const, label: "猫咪行为", href: withLang(lang, "/questions?hub=behavior") },
+    { key: "core" as const, label: questionHubUiLabel(undefined, lang), href: withLang(lang, "/questions") },
+    { key: "disease" as const, label: questionHubUiLabel("disease", lang), href: withLang(lang, "/questions?hub=disease") },
+    { key: "behavior" as const, label: questionHubUiLabel("behavior", lang), href: withLang(lang, "/questions?hub=behavior") },
   ];
 }
 
@@ -75,7 +75,7 @@ export default function QuestionsClient({
   const category = parseQuestionCategoryParam(searchParams.get("category"));
   const activeCategorySlug = category ? QUESTION_CATEGORY_TO_SLUG[category] : undefined;
   const hub = parseQuestionHub(searchParams.get("hub") ?? undefined);
-  const categories = questionCategoriesForHub(hub);
+  const categories = questionCategoryOptionsForHub(hub, lang);
 
   const questions = useMemo(
     () => filterQuestionsFromRows(initialQuestions, q, category, hub, lang),
@@ -120,9 +120,9 @@ export default function QuestionsClient({
         <SearchBar key={`${q}-${hub ?? ""}-${activeCategorySlug ?? ""}`} defaultValue={q} placeholder={c.searchPh} />
         <CategoryFilter
           pathname={questionsPath}
-          items={categories.map((cat: QuestionCategory) => ({
-            value: QUESTION_CATEGORY_TO_SLUG[cat],
-            label: questionCategoryUiLabel(cat, lang),
+          items={categories.map((cat) => ({
+            value: QUESTION_CATEGORY_TO_SLUG[cat.value],
+            label: cat.label,
           }))}
           paramName="category"
           activeValue={activeCategorySlug}

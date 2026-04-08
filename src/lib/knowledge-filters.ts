@@ -14,17 +14,49 @@ import type {
   QuestionHubParam,
 } from "@/lib/types";
 
-/** 归入「猫咪疾病库」的分类：症状、护理与健康向问答 */
+/** canonical 问题分类（过滤逻辑使用，不依赖 UI 语言） */
 export const QUESTION_DISEASE_CATEGORIES: QuestionCategory[] = ["肠胃问题", "健康问题", "护理问题"];
+export const QUESTION_BEHAVIOR_CATEGORY: QuestionCategory = "行为问题";
+
+const QUESTION_CATEGORY_I18N: Record<QuestionCategory, { zh: string; en: string }> = {
+  肠胃问题: { zh: "肠胃问题", en: "Digestion" },
+  行为问题: { zh: "行为问题", en: "Behavior" },
+  护理问题: { zh: "护理问题", en: "Care" },
+  健康问题: { zh: "健康问题", en: "Health" },
+};
+
+const QUESTION_HUB_I18N: Record<"core" | QuestionHubParam, { zh: string; en: string }> = {
+  core: { zh: "养猫问题（全部）", en: "All questions" },
+  disease: { zh: "猫咪健康", en: "Health" },
+  behavior: { zh: "猫咪行为", en: "Behavior" },
+};
 
 export function parseQuestionHub(value: string | undefined): QuestionHubParam | undefined {
   if (value === "disease" || value === "behavior") return value;
   return undefined;
 }
 
+export function questionHubUiLabel(hub: QuestionHubParam | undefined, lang: DataLocale): string {
+  return QUESTION_HUB_I18N[hub ?? "core"][lang];
+}
+
+export function questionCategoryUiLabel(category: QuestionCategory, lang: DataLocale): string {
+  return QUESTION_CATEGORY_I18N[category][lang];
+}
+
+export function questionCategoryOptionsForHub(
+  hub: QuestionHubParam | undefined,
+  lang: DataLocale,
+): Array<{ value: QuestionCategory; label: string }> {
+  return questionCategoriesForHub(hub).map((value) => ({
+    value,
+    label: questionCategoryUiLabel(value, lang),
+  }));
+}
+
 export function questionCategoriesForHub(hub: QuestionHubParam | undefined): QuestionCategory[] {
   if (hub === "disease") return [...QUESTION_DISEASE_CATEGORIES];
-  if (hub === "behavior") return ["行为问题"];
+  if (hub === "behavior") return [QUESTION_BEHAVIOR_CATEGORY];
   return ["肠胃问题", "行为问题", "护理问题", "健康问题"];
 }
 
@@ -48,7 +80,7 @@ export function filterQuestionsFromRows(
     hub === "disease"
       ? rows.filter((q) => QUESTION_DISEASE_CATEGORIES.includes(q.category))
       : hub === "behavior"
-        ? rows.filter((q) => q.category === "行为问题")
+        ? rows.filter((q) => q.category === QUESTION_BEHAVIOR_CATEGORY)
         : rows;
 
   return scoped.filter((q) => {
