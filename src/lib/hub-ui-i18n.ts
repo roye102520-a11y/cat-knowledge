@@ -11,6 +11,7 @@ export type HubModuleKey =
   | "wiki"
   | "foods"
   | "foodCompare"
+  | "dryFoodCompare"
   | "ai";
 
 type HubLabelSet = {
@@ -59,6 +60,10 @@ const HUB_UI: Record<HubModuleKey, Record<DataLocale, HubLabelSet>> = {
   foodCompare: {
     zh: { nav: "罐头严选指南", pageTitle: "罐头严选指南", breadcrumb: "罐头严选指南" },
     en: { nav: "Canned food selector", pageTitle: "Canned food selector", breadcrumb: "Canned food selector" },
+  },
+  dryFoodCompare: {
+    zh: { nav: "干粮严选指南", pageTitle: "干粮严选指南", breadcrumb: "干粮严选指南" },
+    en: { nav: "Dry Food Guide", pageTitle: "Dry Food Guide", breadcrumb: "Dry Food Guide" },
   },
   ai: {
     zh: { nav: "AI问答", pageTitle: "AI 问答", breadcrumb: "AI问答" },
@@ -162,5 +167,38 @@ export function foodWizardBreedLabel(breed: FoodWizardBreed, lang: DataLocale): 
 
 export function foodWizardCopy(lang: DataLocale) {
   return FOOD_WIZARD_COPY[lang];
+}
+
+const FOOD_TOOLS_COPY: Record<
+  DataLocale,
+  {
+    sectionTitle: string;
+    navTools: string;
+    canCardTitle: string;
+    canCardDesc: string;
+    dryCardTitle: string;
+    dryCardDesc: string;
+  }
+> = {
+  zh: {
+    sectionTitle: "严选工具",
+    navTools: "严选工具",
+    canCardTitle: "猫罐头对比指南",
+    canCardDesc: "多维雷达图，按品种基因智能匹配",
+    dryCardTitle: "干粮严选工具",
+    dryCardDesc: "大厂代工背书，成分党专属数据面板",
+  },
+  en: {
+    sectionTitle: "Tools",
+    navTools: "Tools",
+    canCardTitle: "Canned food compare",
+    canCardDesc: "Multi-axis radar with breed-aware matching",
+    dryCardTitle: "Dry food selector",
+    dryCardDesc: "Factory-backed picks with a data-first panel",
+  },
+};
+
+export function foodToolsCopy(lang: DataLocale) {
+  return FOOD_TOOLS_COPY[lang];
 }
 

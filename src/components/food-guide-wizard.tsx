@@ -14,6 +14,7 @@ import type { DataLocale } from "@/lib/types";
 type FoodItem = {
   brand: string;
   name: string;
+  factory?: string;
   price_per_g: number;
   protein_dm: number;
   meat_content: number;
@@ -29,7 +30,7 @@ export type FoodWizardRecommendation = FoodItem & {
 };
 
 type FoodGuideWizardProps = {
-  foods: FoodItem[];
+  foodsData: FoodItem[];
   lang?: DataLocale;
   onRecommendationsChange?: (items: FoodWizardRecommendation[]) => void;
   onCompleted?: () => void;
@@ -52,7 +53,7 @@ function hitGut(food: FoodItem, gut: FoodWizardGut): boolean {
 }
 
 export default function FoodGuideWizard({
-  foods,
+  foodsData,
   lang = "zh",
   onRecommendationsChange,
   onCompleted,
@@ -66,7 +67,7 @@ export default function FoodGuideWizard({
   const breedTags = useMemo(() => getTagsByBreed(breed), [breed]);
 
   const rankedFoods = useMemo(() => {
-    const filtered = foods.filter((food) => hitBudget(food.price_per_g, budget) && hitGut(food, gut));
+    const filtered = foodsData.filter((food) => hitBudget(food.price_per_g, budget) && hitGut(food, gut));
     const withWeight: FoodWizardRecommendation[] = filtered.map((food) => {
       const matched = food.efficacy_tags.filter((tag) => breedTags.includes(tag as (typeof breedTags)[number]));
       const weight = matched.length * 12;
@@ -77,7 +78,7 @@ export default function FoodGuideWizard({
       };
     });
     return withWeight.sort((a, b) => b.weightedScore - a.weightedScore || b.score - a.score).slice(0, 3);
-  }, [foods, budget, gut, breedTags]);
+  }, [foodsData, budget, gut, breedTags]);
 
   useEffect(() => {
     onRecommendationsChange?.(rankedFoods);
@@ -188,6 +189,11 @@ export default function FoodGuideWizard({
                           {food.brand} · {food.name}
                         </p>
                         <p className="mt-1 text-xs text-zinc-600">{matchReason}</p>
+                        {food.factory ? (
+                          <p className="mt-1 inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
+                            🛡️ {lang === "en" ? "Factory" : "生产方"}：{food.factory}
+                          </p>
+                        ) : null}
                       </li>
                     );
                   })}

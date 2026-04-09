@@ -73,7 +73,7 @@ export default function FoodCompareClient({ lang, foods }: FoodCompareClientProp
 
       <section className="rounded-3xl border border-zinc-200 bg-white/85 p-4 md:p-6">
         <FoodGuideWizard
-          foods={foods}
+          foodsData={foods}
           lang={lang}
           onRecommendationsChange={setRecommendations}
           onCompleted={scrollToChart}
@@ -83,7 +83,7 @@ export default function FoodCompareClient({ lang, foods }: FoodCompareClientProp
       <section ref={chartRef} className="rounded-3xl border border-zinc-200 bg-white/85 p-4 md:p-6">
         <h2 className="mb-3 text-lg font-semibold text-zinc-900">{c.radarTitle}</h2>
         {selectedFoods.length > 0 ? (
-          <FoodRadarChart selectedFoods={selectedFoods} />
+          <FoodRadarChart foodsData={selectedFoods} />
         ) : (
           <p className="rounded-2xl bg-zinc-50 px-4 py-6 text-center text-sm text-zinc-500">{c.empty}</p>
         )}

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import QuestionCard from "@/components/question-card";
 import SearchBar from "@/components/search-bar";
 import ShareActions from "@/components/share-actions";
+import FoodToolsCards from "@/components/food-tools-cards";
 import { getHomeContentRecord, getPopularQuestions } from "@/lib/data";
 import { appPath } from "@/lib/app-path";
 import { isUiLocale, type UiLocale, withLang } from "@/lib/localized-path";
@@ -106,6 +107,10 @@ export default async function LangHomePage({ params }: Props) {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="app-panel p-5 sm:p-6">
+        <FoodToolsCards lang={lang} />
       </section>
 
       <section className="app-panel p-5 sm:p-6">

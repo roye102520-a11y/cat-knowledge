@@ -115,3 +115,8 @@ export function mergeHomeContent(
   if (!en) return { ...zh };
   return { ...zh, ...en };
 }
+
+/** 干粮严选数据：读取 `src/data/{lang}/dry-foods-radar.json`，不存在或损坏时返回 null */
+export function tryReadDryFoodsRadarJson<T>(lang: DataLocale): T | null {
+  return tryReadLocalizedJson<T>(lang, "dry-foods-radar.json");
+}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLang, type UiLocale } from "@/lib/localized-path";
+import { foodToolsCopy } from "@/lib/hub-ui-i18n";
 import { SITE_BRAND_NAME } from "@/lib/site-brand";
 import { siteHubsForLocale } from "@/lib/site-hubs";
 
@@ -28,7 +29,10 @@ export default function MainHubsNav() {
   const [open, setOpen] = useState(false);
   const lang: UiLocale = getLocaleFromPathname(pathname);
   const hubs = siteHubsForLocale(lang);
+  const tools = foodToolsCopy(lang);
   const homeHref = withLang(lang, "/");
+  const cannedHref = withLang(lang, "/food-compare");
+  const dryHref = withLang(lang, "/dry-food-compare");
 
   useEffect(() => {
     setOpen(false);
@@ -86,6 +90,19 @@ export default function MainHubsNav() {
                 </Link>
               </li>
             ))}
+            <li className="w-full md:w-auto">
+              <div className="inline-flex w-full max-w-none flex-col rounded-2xl border border-transparent px-3 py-2 text-left text-sm font-medium text-zinc-800 transition hover:border-[var(--card-border)] hover:bg-[var(--color-primary-muted)] md:max-w-[14rem]">
+                <span className="text-sm font-semibold">{tools.navTools}</span>
+                <div className="mt-1 flex flex-col gap-1 md:flex-row md:flex-wrap md:gap-2">
+                  <Link href={cannedHref} className="text-xs text-zinc-600 underline-offset-2 hover:underline" onClick={() => setOpen(false)}>
+                    {tools.canCardTitle}
+                  </Link>
+                  <Link href={dryHref} className="text-xs text-zinc-600 underline-offset-2 hover:underline" onClick={() => setOpen(false)}>
+                    {tools.dryCardTitle}
+                  </Link>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>

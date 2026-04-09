@@ -23,7 +23,7 @@ export type CatFoodRadarItem = {
 };
 
 type FoodRadarChartProps = {
-  selectedFoods: CatFoodRadarItem[];
+  foodsData: CatFoodRadarItem[];
 };
 
 type RadarRow = {
@@ -82,8 +82,8 @@ function buildRadarRows(foods: CatFoodRadarItem[]): RadarRow[] {
   return rows;
 }
 
-export default function FoodRadarChart({ selectedFoods }: FoodRadarChartProps) {
-  const foods = selectedFoods.slice(0, 3);
+export default function FoodRadarChart({ foodsData }: FoodRadarChartProps) {
+  const foods = foodsData.slice(0, 3);
   const chartData = buildRadarRows(foods);
 
   if (foods.length === 0) {
@@ -102,8 +102,9 @@ export default function FoodRadarChart({ selectedFoods }: FoodRadarChartProps) {
           <PolarAngleAxis dataKey="metric" tick={{ fill: "#6B5E57", fontSize: 13 }} />
           <PolarRadiusAxis domain={[0, 100]} tick={{ fill: "#9D8E86", fontSize: 11 }} />
           <Tooltip
-            formatter={(value: number | string | undefined) => {
-              const n = typeof value === "number" ? value : Number(value ?? 0);
+            formatter={(value) => {
+              const raw = Array.isArray(value) ? value[0] : value;
+              const n = typeof raw === "number" ? raw : Number(raw ?? 0);
               return `${Math.round(Number.isFinite(n) ? n : 0)}%`;
             }}
             contentStyle={{
