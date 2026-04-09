@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getTagsByBreed } from "@/lib/breed-meta";
 import {
   foodWizardBreedLabel,
@@ -15,14 +15,24 @@ type FoodItem = {
   brand: string;
   name: string;
   price_per_g: number;
+  protein_dm: number;
+  meat_content: number;
+  cost_performance_level: string;
   score: number;
   safety_tags: string[];
   efficacy_tags: string[];
 };
 
+export type FoodWizardRecommendation = FoodItem & {
+  matchTags: string[];
+  weightedScore: number;
+};
+
 type FoodGuideWizardProps = {
   foods: FoodItem[];
   lang?: DataLocale;
+  onRecommendationsChange?: (items: FoodWizardRecommendation[]) => void;
+  onCompleted?: () => void;
 };
 
 const BREED_OPTIONS: FoodWizardBreed[] = ["金吉拉", "布偶猫", "英短", "全品种/通用"];
@@ -41,7 +51,12 @@ function hitGut(food: FoodItem, gut: FoodWizardGut): boolean {
   return tags.has("无胶") && tags.has("无谷");
 }
 
-export default function FoodGuideWizard({ foods, lang = "zh" }: FoodGuideWizardProps) {
+export default function FoodGuideWizard({
+  foods,
+  lang = "zh",
+  onRecommendationsChange,
+  onCompleted,
+}: FoodGuideWizardProps) {
   const copy = foodWizardCopy(lang);
   const [step, setStep] = useState(0);
   const [breed, setBreed] = useState<FoodWizardBreed>("全品种/通用");
@@ -52,13 +67,27 @@ export default function FoodGuideWizard({ foods, lang = "zh" }: FoodGuideWizardP
 
   const rankedFoods = useMemo(() => {
     const filtered = foods.filter((food) => hitBudget(food.price_per_g, budget) && hitGut(food, gut));
-    const withWeight = filtered.map((food) => {
+    const withWeight: FoodWizardRecommendation[] = filtered.map((food) => {
       const matched = food.efficacy_tags.filter((tag) => breedTags.includes(tag as (typeof breedTags)[number]));
       const weight = matched.length * 12;
-      return { ...food, _matchTags: matched, _weightedScore: food.score + weight };
+      return {
+        ...food,
+        matchTags: matched,
+        weightedScore: food.score + weight,
+      };
     });
-    return withWeight.sort((a, b) => b._weightedScore - a._weightedScore || b.score - a.score).slice(0, 3);
+    return withWeight.sort((a, b) => b.weightedScore - a.weightedScore || b.score - a.score).slice(0, 3);
   }, [foods, budget, gut, breedTags]);
+
+  useEffect(() => {
+    onRecommendationsChange?.(rankedFoods);
+  }, [rankedFoods, onRecommendationsChange]);
+
+  useEffect(() => {
+    if (step === 3 && rankedFoods.length > 0) {
+      onCompleted?.();
+    }
+  }, [step, rankedFoods.length, onCompleted]);
 
   const canPrev = step > 0;
   const canNext = step < 3;
@@ -150,8 +179,8 @@ export default function FoodGuideWizard({ foods, lang = "zh" }: FoodGuideWizardP
                 <ul className="space-y-2">
                   {rankedFoods.map((food) => {
                     const matchReason =
-                      food._matchTags.length > 0
-                        ? `${copy.matchPrefix}${foodWizardBreedLabel(breed, lang)}: ${food._matchTags[0]}`
+                      food.matchTags.length > 0
+                        ? `${copy.matchPrefix}${foodWizardBreedLabel(breed, lang)}: ${food.matchTags[0]}`
                         : copy.matchFallback;
                     return (
                       <li key={`${food.brand}-${food.name}`} className="rounded-xl border border-zinc-200 bg-white px-3 py-2">

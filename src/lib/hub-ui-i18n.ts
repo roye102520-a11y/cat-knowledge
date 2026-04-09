@@ -10,6 +10,7 @@ export type HubModuleKey =
   | "guides"
   | "wiki"
   | "foods"
+  | "foodCompare"
   | "ai";
 
 type HubLabelSet = {
@@ -54,6 +55,10 @@ const HUB_UI: Record<HubModuleKey, Record<DataLocale, HubLabelSet>> = {
   foods: {
     zh: { nav: "饮食禁忌", pageTitle: "饮食禁忌", breadcrumb: "饮食禁忌" },
     en: { nav: "Food safety", pageTitle: "Food safety", breadcrumb: "Food safety" },
+  },
+  foodCompare: {
+    zh: { nav: "罐头严选指南", pageTitle: "罐头严选指南", breadcrumb: "罐头严选指南" },
+    en: { nav: "Canned food selector", pageTitle: "Canned food selector", breadcrumb: "Canned food selector" },
   },
   ai: {
     zh: { nav: "AI问答", pageTitle: "AI 问答", breadcrumb: "AI问答" },

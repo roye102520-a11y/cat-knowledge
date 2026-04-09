@@ -102,7 +102,10 @@ export default function FoodRadarChart({ selectedFoods }: FoodRadarChartProps) {
           <PolarAngleAxis dataKey="metric" tick={{ fill: "#6B5E57", fontSize: 13 }} />
           <PolarRadiusAxis domain={[0, 100]} tick={{ fill: "#9D8E86", fontSize: 11 }} />
           <Tooltip
-            formatter={(value: number) => `${Math.round(value)}%`}
+            formatter={(value: number | string | undefined) => {
+              const n = typeof value === "number" ? value : Number(value ?? 0);
+              return `${Math.round(Number.isFinite(n) ? n : 0)}%`;
+            }}
             contentStyle={{
               borderRadius: 12,
               border: "1px solid #F0E5DE",
