@@ -73,3 +73,89 @@ export function hubBreadcrumbLabel(key: HubModuleKey, lang: DataLocale): string 
   return HUB_UI[key][lang].breadcrumb;
 }
 
+export type FoodWizardBreed = "金吉拉" | "布偶猫" | "英短" | "全品种/通用";
+export type FoodWizardBudget = "low" | "mid" | "high";
+export type FoodWizardGut = "normal" | "sensitive";
+
+const FOOD_WIZARD_BREED_LABELS: Record<FoodWizardBreed, Record<DataLocale, string>> = {
+  金吉拉: { zh: "金吉拉", en: "Chinchilla Persian" },
+  布偶猫: { zh: "布偶猫", en: "Ragdoll" },
+  英短: { zh: "英短", en: "British Shorthair" },
+  "全品种/通用": { zh: "全品种/通用", en: "All breeds / General" },
+};
+
+const FOOD_WIZARD_COPY: Record<
+  DataLocale,
+  {
+    title: string;
+    subtitle: string;
+    qBreed: string;
+    qBudget: string;
+    qGut: string;
+    budget: Record<FoodWizardBudget, string>;
+    gut: Record<FoodWizardGut, string>;
+    next: string;
+    back: string;
+    restart: string;
+    resultTitle: string;
+    empty: string;
+    matchPrefix: string;
+    matchFallback: string;
+  }
+> = {
+  zh: {
+    title: "罐头智能推荐",
+    subtitle: "按品种痛点、预算与肠胃偏好，给出 Top 3 推荐。",
+    qBreed: "猫咪品种",
+    qBudget: "你的预算偏好",
+    qGut: "肠胃关注程度",
+    budget: {
+      low: "性价比优先（平价）",
+      mid: "均衡型（中档）",
+      high: "品质优先（高端）",
+    },
+    gut: {
+      normal: "普通肠胃",
+      sensitive: "玻璃胃 / 更敏感",
+    },
+    next: "下一题",
+    back: "上一题",
+    restart: "重新选择",
+    resultTitle: "推荐结果 Top 3",
+    empty: "当前条件下暂无匹配结果，请放宽筛选条件。",
+    matchPrefix: "非常适合",
+    matchFallback: "匹配你当前的预算与肠胃偏好",
+  },
+  en: {
+    title: "Smart canned food picker",
+    subtitle: "Top 3 picks by breed pain points, budget and gut preference.",
+    qBreed: "Cat breed",
+    qBudget: "Budget preference",
+    qGut: "Gut sensitivity",
+    budget: {
+      low: "Value-first (budget)",
+      mid: "Balanced (mid-range)",
+      high: "Quality-first (premium)",
+    },
+    gut: {
+      normal: "Normal digestion",
+      sensitive: "Sensitive tummy",
+    },
+    next: "Next",
+    back: "Back",
+    restart: "Start over",
+    resultTitle: "Top 3 recommendations",
+    empty: "No matching cans for current filters. Try a broader setup.",
+    matchPrefix: "Great fit for",
+    matchFallback: "Matches your budget and gut profile",
+  },
+};
+
+export function foodWizardBreedLabel(breed: FoodWizardBreed, lang: DataLocale): string {
+  return FOOD_WIZARD_BREED_LABELS[breed][lang];
+}
+
+export function foodWizardCopy(lang: DataLocale) {
+  return FOOD_WIZARD_COPY[lang];
+}
+
