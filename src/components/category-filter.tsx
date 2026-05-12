@@ -50,14 +50,14 @@ export default function CategoryFilter({
   const hrefAll = qsAll ? `${pathname}?${qsAll}` : pathname;
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex min-h-12 flex-wrap gap-3 rounded-2xl border-0 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
       <Link
         href={hrefAll}
         scroll={false}
-        className={`rounded-full border px-3 py-1 text-sm no-underline ${
+        className={`inline-flex min-h-12 items-center rounded-xl border-0 px-4 py-2 text-sm no-underline shadow-[0_1px_4px_rgba(0,0,0,0.05)] transition ${
           !activeValue
             ? "border-zinc-900 bg-zinc-900 text-white"
-            : "border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-100"
+            : "border-zinc-300 bg-white text-zinc-700 hover:bg-[var(--color-accent-green)]"
         }`}
       >
         {allLabel}
@@ -70,10 +70,10 @@ export default function CategoryFilter({
             key={value}
             href={href}
             scroll={false}
-            className={`rounded-full border px-3 py-1 text-sm no-underline ${
+            className={`inline-flex min-h-12 items-center rounded-xl border-0 px-4 py-2 text-sm no-underline shadow-[0_1px_4px_rgba(0,0,0,0.05)] transition ${
               activeValue === value
                 ? "border-zinc-900 bg-zinc-900 text-white"
-                : "border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-100"
+                : "border-zinc-300 bg-white text-zinc-700 hover:bg-[var(--color-accent-green)]"
             }`}
           >
             {label}

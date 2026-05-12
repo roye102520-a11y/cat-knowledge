@@ -89,13 +89,13 @@ export default function QuestionsClient({
   const questionsPath = withLang(lang, "/questions");
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-semibold">{title}</h1>
+        <h1 className="text-2xl font-semibold">{title}</h1>
         <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
       </div>
 
-      <nav aria-label={c.navAria} className="flex flex-wrap gap-2">
+      <nav aria-label={c.navAria} className="flex min-h-12 flex-wrap gap-3 rounded-2xl border-0 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
         {tabs.map((t) => {
           const active =
             (t.key === "core" && !hub) || (t.key === "disease" && hub === "disease") || (t.key === "behavior" && hub === "behavior");
@@ -106,7 +106,7 @@ export default function QuestionsClient({
               className={`rounded-full px-3 py-1.5 text-sm transition ${
                 active
                   ? "bg-zinc-900 text-white"
-                  : "border border-zinc-300 bg-white text-zinc-700 hover:bg-zinc-50"
+                  : "border border-zinc-300 bg-white text-zinc-700 hover:bg-[var(--color-accent-green)]"
               }`}
             >
               {t.label}
@@ -115,7 +115,7 @@ export default function QuestionsClient({
         })}
       </nav>
 
-      <form className="space-y-3" method="get" action={appPath(questionsPath)} acceptCharset="UTF-8">
+      <form className="space-y-4" method="get" action={appPath(questionsPath)} acceptCharset="UTF-8">
         {hub ? <input type="hidden" name="hub" value={hub} /> : null}
         {activeCategorySlug ? <input type="hidden" name="category" value={activeCategorySlug} /> : null}
         <SearchBar key={`${q}-${hub ?? ""}-${activeCategorySlug ?? ""}`} defaultValue={q} placeholder={c.searchPh} />
@@ -131,7 +131,7 @@ export default function QuestionsClient({
         />
       </form>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {questions.map((question) => (
           <QuestionCard key={question.id} question={question} lang={lang} />
         ))}
