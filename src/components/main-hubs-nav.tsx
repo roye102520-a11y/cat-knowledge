@@ -53,12 +53,12 @@ export default function MainHubsNav() {
 
   return (
     <nav aria-label={navAria} className="bg-transparent">
-      <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
+      <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8 sm:py-5">
         <div className="flex flex-col gap-0 md:flex-row md:items-center md:justify-between md:gap-6">
           <div className="flex items-center justify-between gap-4 md:justify-start">
             <Link
               href={homeHref}
-              className="shrink-0 text-xl font-semibold tracking-tight text-zinc-800 decoration-transparent transition hover:text-zinc-600"
+              className="shrink-0 text-2xl font-semibold tracking-tight text-zinc-800 decoration-transparent transition hover:text-zinc-600"
             >
               {SITE_BRAND_NAME}
             </Link>
@@ -75,7 +75,7 @@ export default function MainHubsNav() {
           </div>
           <ul
             id="main-hub-links"
-            className={`mt-0 flex-col gap-1 border-t py-3 md:mt-0 md:flex md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-1.5 md:border-0 md:py-0 ${open ? "flex" : "hidden md:flex"}`}
+            className={`mt-0 flex-col gap-2 border-t py-4 md:mt-0 md:flex md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-2.5 md:border-0 md:py-0 ${open ? "flex" : "hidden md:flex"}`}
             style={{ borderColor: "var(--header-border)" }}
           >
             {hubs.map((hub) => (
@@ -83,7 +83,7 @@ export default function MainHubsNav() {
                 <Link
                   href={hub.href}
                   title={hub.description}
-                  className="inline-flex w-full max-w-none items-center rounded-full border border-transparent px-3 py-2.5 text-left text-sm font-medium text-zinc-800 transition hover:border-[var(--card-border)] hover:bg-[var(--color-primary-muted)] md:max-w-[11rem] md:text-center md:text-sm"
+                  className="inline-flex w-full max-w-none items-center rounded-full border border-transparent px-4 py-3 text-left text-sm font-medium text-zinc-800 transition hover:border-[var(--card-border)] hover:bg-[var(--color-primary-muted)] md:max-w-[11rem] md:text-center md:text-sm"
                   onClick={() => setOpen(false)}
                 >
                   {hub.title}
@@ -91,7 +91,7 @@ export default function MainHubsNav() {
               </li>
             ))}
             <li className="w-full md:w-auto">
-              <div className="inline-flex w-full max-w-none flex-col rounded-2xl border border-transparent px-3 py-2 text-left text-sm font-medium text-zinc-800 transition hover:border-[var(--card-border)] hover:bg-[var(--color-primary-muted)] md:max-w-[14rem]">
+              <div className="inline-flex w-full max-w-none flex-col rounded-2xl border border-transparent px-4 py-3 text-left text-sm font-medium text-zinc-800 transition hover:border-[var(--card-border)] hover:bg-[var(--color-primary-muted)] md:max-w-[14rem]">
                 <span className="text-sm font-semibold">{tools.navTools}</span>
                 <div className="mt-1 flex flex-col gap-1 md:flex-row md:flex-wrap md:gap-2">
                   <Link href={cannedHref} className="text-xs text-zinc-600 underline-offset-2 hover:underline" onClick={() => setOpen(false)}>

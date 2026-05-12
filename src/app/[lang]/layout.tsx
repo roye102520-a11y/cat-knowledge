@@ -49,14 +49,14 @@ export default async function LangLayout({
       <HtmlLangSetter lang={lang} />
       <LanguageSwitcher />
       <header
-        className="sticky top-0 z-10 border-b shadow-[0_1px_0_rgba(66,42,40,0.04)] backdrop-blur-md"
+        className="sticky top-0 z-10 border-b py-1 shadow-[0_1px_0_rgba(66,42,40,0.04)] backdrop-blur-md"
         style={{ background: "var(--header-bg)", borderColor: "var(--header-border)" }}
       >
         <MainHubsNav />
       </header>
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">{children}</main>
+      <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 sm:px-8 sm:py-12">{children}</main>
       <footer className="mt-8 border-t" style={{ background: "var(--footer-bg)", borderColor: "var(--footer-border)" }}>
-        <div className="mx-auto max-w-6xl px-4 py-5 text-xs leading-6 text-zinc-500 sm:px-6">
+        <div className="mx-auto max-w-6xl px-5 py-6 text-xs leading-6 text-zinc-500 sm:px-6">
           <p>
             {copy.disclaimerLines.map((line, i) => (
               <span key={i}>
