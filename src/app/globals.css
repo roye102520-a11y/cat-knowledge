@@ -59,6 +59,20 @@ body {
   border-color: var(--card-border-hover);
 }
 
+.question-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.question-accordion.open {
+  grid-template-rows: 1fr;
+}
+
+.question-accordion-inner {
+  overflow: hidden;
+}
+
 /* 大区块（首页 hero 等）：同套变量，可按需叠加大圆角 */
 .app-panel {
   border-radius: var(--card-radius);
