@@ -22,7 +22,7 @@ export default function QuestionCard({
   const categoryLabel = questionCategoryUiLabel(question.category, lang);
 
   return (
-    <article className="app-card p-4">
+    <article className="app-card p-5">
       <Tag>{categoryLabel}</Tag>
       <h3 className="text-base font-semibold text-zinc-900">
         <HighlightText text={question.title} keyword={keyword} />

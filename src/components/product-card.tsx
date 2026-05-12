@@ -4,7 +4,7 @@ import Tag from "@/components/tag";
 
 export default function ProductCard({ product, keyword }: { product: Product; keyword?: string }) {
   return (
-    <article className="app-card p-4">
+    <article className="app-card p-5">
       <div className="mb-2 flex flex-wrap gap-2">
         <Tag>{product.category}</Tag>
         <Tag>{product.type}</Tag>

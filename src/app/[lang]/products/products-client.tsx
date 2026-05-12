@@ -62,12 +62,12 @@ export default function ProductsClient({
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-semibold">{c.title}</h1>
+        <h1 className="text-2xl font-semibold">{c.title}</h1>
         <p className="mt-1 text-sm text-zinc-600">{c.subtitle}</p>
       </div>
-      <form className="space-y-3" method="get" action={appPath(productsPath)} acceptCharset="UTF-8">
+      <form className="space-y-4" method="get" action={appPath(productsPath)} acceptCharset="UTF-8">
         {activeCategorySlug ? <input type="hidden" name="category" value={activeCategorySlug} /> : null}
         {priceLevel ? <input type="hidden" name="price_level" value={priceLevel} /> : null}
         <SearchBar
@@ -91,7 +91,7 @@ export default function ProductsClient({
         />
       </form>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

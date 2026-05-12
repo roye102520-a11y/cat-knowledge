@@ -6,13 +6,15 @@ html {
 
 :root {
   /* 治愈感：暖米色底 + 猫爪粉主色 */
-  --background: #fdfbf7;
+  --background: #fbfbfa;
   --foreground: #3f3f46;
-  --page-bg: #fdfbf7;
-  --color-primary: #ffb7b2;
-  --color-primary-hover: #ff9e97;
+  --page-bg: #fbfbfa;
+  --color-primary: #FFB7B2;
+  --color-primary-hover: #fca8a2;
   --color-primary-foreground: #422a28;
   --color-primary-muted: rgba(255, 183, 178, 0.35);
+  --color-accent-green: #E2F0CB;
+  --color-accent-orange: #FFDAC1;
 
   --card-radius: 16px;
   --card-bg: #ffffff;
@@ -24,9 +26,9 @@ html {
   --shadow-elevated: var(--card-shadow);
   --shadow-card-hover: var(--card-shadow-hover);
 
-  --header-bg: rgba(253, 251, 247, 0.92);
+  --header-bg: color-mix(in srgb, var(--page-bg) 90%, var(--color-accent-orange) 10%);
   --header-border: rgba(61, 37, 32, 0.1);
-  --footer-bg: #faf6f0;
+  --footer-bg: color-mix(in srgb, var(--page-bg) 84%, var(--color-accent-green) 16%);
   --footer-border: rgba(61, 37, 32, 0.08);
 }
 
