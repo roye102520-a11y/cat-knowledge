@@ -11,7 +11,7 @@ function stripBasePath(pathname: string): { base: string; rest: string } {
   return { base: "", rest: pathname };
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   if (
     pathname.includes("/_next") ||
