@@ -47,24 +47,6 @@ export default function QuestionCard({
         <p className="mt-2 text-sm text-zinc-700">
           <span className="font-medium text-zinc-900">{lang === "en" ? "Community takeaway:" : "群友结论："}</span>{" "}
           <HighlightText text={conclusion} keyword={keyword} />
-    <article className="app-card p-5">
-      <Tag>{categoryLabel}</Tag>
-      <h3 className="text-base font-semibold text-zinc-900">
-        <HighlightText text={question.title} keyword={keyword} />
-      </h3>
-      <p className="mt-2 text-sm text-zinc-600">
-        <HighlightText text={question.description} keyword={keyword} />
-      </p>
-      <div className="mt-3 text-sm text-zinc-700">
-        <p className="font-medium">{sections.causes}</p>
-        <p>
-          <HighlightText text={question.causes.join(sep.causes)} keyword={keyword} />
-        </p>
-      </div>
-      <div className="mt-2 text-sm text-zinc-700">
-        <p className="font-medium">{sections.solutions}</p>
-        <p>
-          <HighlightText text={question.solutions.join(sep.solutions)} keyword={keyword} />
         </p>
         <p className="mt-2 text-xs text-zinc-500">{actionText}</p>
       </button>

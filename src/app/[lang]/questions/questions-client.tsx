@@ -23,13 +23,6 @@ import {
 import type { Question } from "@/lib/types";
 
 function hubTabs(lang: UiLocale) {
-  if (lang === "en") {
-    return [
-      { key: "core" as const, label: questionHubUiLabel(undefined, lang), href: withLang(lang, "/questions") },
-      { key: "disease" as const, label: questionHubUiLabel("disease", lang), href: withLang(lang, "/questions?hub=disease") },
-      { key: "behavior" as const, label: questionHubUiLabel("behavior", lang), href: withLang(lang, "/questions?hub=behavior") },
-    ];
-  }
   return [
     { key: "core" as const, label: questionHubUiLabel(undefined, lang), href: withLang(lang, "/questions") },
     { key: "disease" as const, label: questionHubUiLabel("disease", lang), href: withLang(lang, "/questions?hub=disease") },
@@ -63,6 +56,7 @@ const copy = {
     diseaseTitle: "Cat health",
     behaviorTitle: "Behavior",
     coreTitle: hubPageTitle("questions", "en"),
+    heroHint: "Search symptoms / behavior / health questions",
     diseaseSub: "Digestion, symptoms, skin and senior care Q&A. Seek a vet for emergencies.",
     behaviorSub: "Litter issues, scratching, stress and routines. Rule out pain or illness first.",
     coreSub: "Search and filter user-style questions across the library.",
@@ -107,10 +101,6 @@ export default function QuestionsClient({
         <h1 className="text-3xl font-semibold text-zinc-900 sm:text-[2rem]">{title}</h1>
         <p className="text-base leading-7 text-zinc-700">{c.heroHint}</p>
         <p className="mx-auto max-w-3xl text-sm leading-7 text-zinc-600">{subtitle}</p>
-    <div className="space-y-5">
-      <div>
-        <h1 className="text-2xl font-semibold">{title}</h1>
-        <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
       </div>
 
       <nav aria-label={c.navAria} className="flex min-h-12 flex-wrap gap-3 rounded-2xl border-0 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
@@ -180,7 +170,6 @@ export default function QuestionsClient({
         </div>
       </aside>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {questions.map((question) => (
           <QuestionCard key={question.id} question={question} lang={lang} />
