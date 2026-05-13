@@ -2,15 +2,20 @@
 
 import { useMemo, useState } from "react";
 import { marked } from "marked";
-import type { UiLocale } from "@/lib/localized-path";
 import HighlightText from "@/components/highlight-text";
 import Tag from "@/components/tag";
-import {
-  questionCardSectionCopy,
-  questionCategoryUiLabel,
-  questionListJoiners,
-} from "@/lib/question-ui-i18n";
+import type { UiLocale } from "@/lib/localized-path";
+import { questionCardSectionCopy, questionCategoryUiLabel, questionListJoiners } from "@/lib/question-ui-i18n";
 import type { Question } from "@/lib/types";
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
 export default function QuestionCard({
   question,
@@ -26,20 +31,19 @@ export default function QuestionCard({
   const sep = questionListJoiners(lang);
   const categoryLabel = questionCategoryUiLabel(question.category, lang);
   const conclusion = question.solutions[0] ?? question.description;
-  const detailMarkdown = `### ${sections.causes}\n${question.causes.map((item) => `- ${item}`).join("\n")}\n\n### ${sections.solutions}\n${question.solutions
-    .map((item) => `- ${item}`)
-    .join("\n")}`;
+
+  const detailMarkdown = useMemo(() => {
+    const safeCauses = question.causes.map((item) => `- ${escapeHtml(item)}`).join("\n");
+    const safeSolutions = question.solutions.map((item) => `- ${escapeHtml(item)}`).join("\n");
+    return `### ${sections.causes}\n${safeCauses}\n\n### ${sections.solutions}\n${safeSolutions}`;
+  }, [question.causes, question.solutions, sections.causes, sections.solutions]);
+
   const detailHtml = useMemo(() => marked.parse(detailMarkdown) as string, [detailMarkdown]);
   const actionText = expanded ? (lang === "en" ? "Collapse" : "收起详情") : lang === "en" ? "Expand" : "展开详情";
 
   return (
     <article className="app-card p-4">
-      <button
-        type="button"
-        onClick={() => setExpanded((prev) => !prev)}
-        className="w-full text-left"
-        aria-expanded={expanded}
-      >
+      <button type="button" onClick={() => setExpanded((prev) => !prev)} className="w-full text-left" aria-expanded={expanded}>
         <Tag>{categoryLabel}</Tag>
         <h3 className="mt-1 text-base font-semibold text-zinc-900">
           <HighlightText text={question.title} keyword={keyword} />
@@ -47,24 +51,6 @@ export default function QuestionCard({
         <p className="mt-2 text-sm text-zinc-700">
           <span className="font-medium text-zinc-900">{lang === "en" ? "Community takeaway:" : "群友结论："}</span>{" "}
           <HighlightText text={conclusion} keyword={keyword} />
-    <article className="app-card p-5">
-      <Tag>{categoryLabel}</Tag>
-      <h3 className="text-base font-semibold text-zinc-900">
-        <HighlightText text={question.title} keyword={keyword} />
-      </h3>
-      <p className="mt-2 text-sm text-zinc-600">
-        <HighlightText text={question.description} keyword={keyword} />
-      </p>
-      <div className="mt-3 text-sm text-zinc-700">
-        <p className="font-medium">{sections.causes}</p>
-        <p>
-          <HighlightText text={question.causes.join(sep.causes)} keyword={keyword} />
-        </p>
-      </div>
-      <div className="mt-2 text-sm text-zinc-700">
-        <p className="font-medium">{sections.solutions}</p>
-        <p>
-          <HighlightText text={question.solutions.join(sep.solutions)} keyword={keyword} />
         </p>
         <p className="mt-2 text-xs text-zinc-500">{actionText}</p>
       </button>
